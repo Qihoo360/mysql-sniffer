@@ -1,5 +1,5 @@
 ## 简介
-MySQL Sniffer 是一个基于 MySQL 协议的抓包工具，实时抓取 MySQLServer 端的请求，并格式化输出。输出内容包访问括时间、访问用户、来源 IP、访问 Database、命令耗时、返回数据行数、执行语句等。有批量抓取多个端口，后台运行，日志分割等多种使用方式，操作便捷，输出友好。
+MySQL Sniffer 是一个基于 MySQL 协议的抓包工具，实时抓取 MySQLServer 端的请求，并格式化输出。输出内容包括访问时间、访问用户、来源 IP、访问 Database、命令耗时、返回数据行数、执行语句等。有批量抓取多个端口，后台运行，日志分割等多种使用方式，操作便捷，输出友好。
 
 
 同时也适用抓取 Atlas 端的请求，Atlas 是奇虎开源的一款基于MySQL协议的数据中间层项目，项目地址：[https://github.com/Qihoo360/Atlas](https://github.com/Qihoo360/Atlas)
@@ -9,6 +9,19 @@ MySQL Sniffer 是一个基于 MySQL 协议的抓包工具，实时抓取 MySQLSe
 ## 使用
 建议在 centos6.2 及以上编译安装，并用 root 运行。
 
+### 依赖
+glib2.0、libpcap
+
+### 安装
+```
+git clone git@github.com:Qihoo360/mysql-sniffer.git
+cd mysql-sniffer
+mkdir proj
+cd proj
+cmake ../
+make
+cd bin/
+```
 ###参数：
 
 ```
@@ -28,6 +41,7 @@ Usage mysql-sniffer [-d] -i eth0 -p 3306,3307,3308 -l /var/log/mysql-sniffer/ -e
          -t truncation length. truncate long query if it's longer than specified length. Less than 0 means no truncation
          -n keeping tcp stream count, if not set, default is 65536. if active tcp count is larger than the specified count, mysql-sniffer will remove the oldest one
 ```
+
 ## 示例
 ### 1. 实时抓取某端口信息并打印到屏幕
 输出格式为：时间，访问用户，来源 IP，访问 Database，命令耗时，返回数据行数，执行语句。
@@ -62,7 +76,7 @@ mysql-sniffer -i eth0 -p 3306,3307,3310 -l /tmp
 ##更多
 
 MySQL Sniffer 更多使用方式以及 Atlas 等其他技术请关注：我们360私有云（HULK平台）平台微信公共号
-<img src="http://i.imgur.com/pL4ni57.png" height = "400" width = "600" alt="2">
+<img src="http://i.imgur.com/pL4ni57.png" width = "500" alt="2">
 
 ##感谢
 感谢[yihaoDeng](https://github.com/yihaoDeng), [winkyao](https://github.com/winkyao)对 MySQL Sniffer 的贡献。

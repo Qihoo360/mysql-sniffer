@@ -26,6 +26,18 @@ Usage mysql-sniffer [-d] -i eth0 -p 3306,3307,3308 -l /var/log/mysql-sniffer/ -e
          -t truncation length. truncate long query if it's longer than specified length. Less than 0 means no truncation
          -n keeping tcp stream count, if not set, default is 65536. if active tcp count is larger than the specified count, mysql-sniffer will remove the oldest one
 ```
+# Install
+```
+git clone git@github.com:Qihoo360/mysql-sniffer.git
+cd mysql-sniffer
+mkdir proj
+cd proj
+cmake ../
+make
+cd bin/
+```
+# Dependence 
+glib2.0、libpcap
 
 # Install
 
@@ -42,7 +54,7 @@ cd bin/
 # More
 More MySQL Sniffer information, Atlas and some other technology please pay attention to our Hulk platform official account:
 
-<img src="http://i.imgur.com/pL4ni57.png" height = "400" width = "600" alt="2">
+<img src="http://i.imgur.com/pL4ni57.png" width = "500" alt="2">
 
 # Thanks
 Thanks for the contributions [yihaoDeng](https://github.com/yihaoDeng) and [winkyao](https://github.com/winkyao) have made for MySQL Sniffer
