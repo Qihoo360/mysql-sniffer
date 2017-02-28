@@ -33,4 +33,4 @@ More MySQL Sniffer information, Atlas and some other technology please pay atten
 <img src="http://i.imgur.com/pL4ni57.png" height = "400" width = "600" alt="2">
 
 # Thanks
-Thanks [yihaoDeng](https://github.com/yihaoDeng), [winkyao](https://github.com/winkyao) contribution to MySQL Sniffer.
+Thanks for the contributions [yihaoDeng](https://github.com/yihaoDeng) and [winkyao](https://github.com/winkyao) have made for MySQL Sniffer
