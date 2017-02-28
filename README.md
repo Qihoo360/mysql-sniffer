@@ -27,6 +27,18 @@ Usage mysql-sniffer [-d] -i eth0 -p 3306,3307,3308 -l /var/log/mysql-sniffer/ -e
          -n keeping tcp stream count, if not set, default is 65536. if active tcp count is larger than the specified count, mysql-sniffer will remove the oldest one
 ```
 
+# Install
+
+```
+git clone git@github.com:Qihoo360/mysql-sniffer.git
+cd mysql-sniffer
+mkdir proj
+cd proj
+cmake ../
+make
+cd bin/
+```
+
 # More
 More MySQL Sniffer information, Atlas and some other technology please pay attention to our Hulk platform official account:
 
