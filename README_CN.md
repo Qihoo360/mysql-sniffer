@@ -9,6 +9,15 @@ MySQL Sniffer 是一个基于 MySQL 协议的抓包工具，实时抓取 MySQLSe
 ## 使用
 建议在 centos6.2 及以上编译安装，并用 root 运行。
 
+```
+git clone git@github.com:Qihoo360/mysql-sniffer.git
+cd mysql-sniffer
+mkdir proj
+cd proj
+cmake ../
+make
+cd bin/
+```
 ###参数：
 
 ```
