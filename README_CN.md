@@ -62,7 +62,7 @@ mysql-sniffer -i eth0 -p 3306,3307,3310 -l /tmp
 ##更多
 
 MySQL Sniffer 更多使用方式以及 Atlas 等其他技术请关注：我们360私有云（HULK平台）平台微信公共号
-<img src="http://i.imgur.com/pL4ni57.png" height = "400" width = "600" alt="2">
+<img src="http://i.imgur.com/pL4ni57.png" width = "300" alt="2">
 
 ##感谢
 感谢[yihaoDeng](https://github.com/yihaoDeng), [winkyao](https://github.com/winkyao)对 MySQL Sniffer 的贡献。
