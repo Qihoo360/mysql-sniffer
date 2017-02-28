@@ -9,6 +9,10 @@ MySQL Sniffer 是一个基于 MySQL 协议的抓包工具，实时抓取 MySQLSe
 ## 使用
 建议在 centos6.2 及以上编译安装，并用 root 运行。
 
+### 依赖
+glib2.0、libpcap
+
+### 安装
 ```
 git clone git@github.com:Qihoo360/mysql-sniffer.git
 cd mysql-sniffer
@@ -37,8 +41,7 @@ Usage mysql-sniffer [-d] -i eth0 -p 3306,3307,3308 -l /var/log/mysql-sniffer/ -e
          -t truncation length. truncate long query if it's longer than specified length. Less than 0 means no truncation
          -n keeping tcp stream count, if not set, default is 65536. if active tcp count is larger than the specified count, mysql-sniffer will remove the oldest one
 ```
-## 依赖
-glib2.0、libpcap
+
 ## 示例
 ### 1. 实时抓取某端口信息并打印到屏幕
 输出格式为：时间，访问用户，来源 IP，访问 Database，命令耗时，返回数据行数，执行语句。
