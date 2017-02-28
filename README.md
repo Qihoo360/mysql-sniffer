@@ -36,6 +36,8 @@ cmake ../
 make
 cd bin/
 ```
+# Dependence 
+glib2.0、libpcap
 
 # More
 More MySQL Sniffer information, Atlas and some other technology please pay attention to our Hulk platform official account:
