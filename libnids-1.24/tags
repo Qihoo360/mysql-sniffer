@@ -1,0 +1,592 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A sample application	doc/API.html	/^          4. <a name="A sample application">A sample application<\/a>$/;"	a
+CC	samples/Makefile	/^CC		= gcc$/;"	m
+CC	src/Makefile	/^CC		= gcc$/;"	m
+CFLAGS	samples/Makefile	/^CFLAGS		= -g -O2 -D_BSD_SOURCE$/;"	m
+CFLAGS	src/Makefile	/^CFLAGS		= -g -O0 -D_BSD_SOURCE -DLIBNET_VER=1 -DHAVE_ICMPHDR=1 -DHAVE_TCP_STATES=1 -DHAVE_BSD_UDPHDR=1 -DENABLE_TCPREASM=1$/;"	m
+COLLECT_cc	src/tcp.c	/^#define COLLECT_cc /;"	d	file:
+COLLECT_ccu	src/tcp.c	/^#define COLLECT_ccu /;"	d	file:
+COLLECT_sc	src/tcp.c	/^#define COLLECT_sc /;"	d	file:
+COLLECT_scu	src/tcp.c	/^#define COLLECT_scu /;"	d	file:
+DATA_FRAME_IS_QOS	src/libnids.c	/^#define DATA_FRAME_IS_QOS(/;"	d	file:
+DLT_LINUX_SLL	src/libnids.c	/^#define DLT_LINUX_SLL /;"	d	file:
+EOF_item	src/libnids.c	/^static struct cap_queue_item EOF_item;$/;"	v	typeref:struct:cap_queue_item	file:
+ETHERTYPE_IP	src/libnids.c	/^#define ETHERTYPE_IP /;"	d	file:
+EXP_SEQ	src/tcp.c	/^#define EXP_SEQ /;"	d	file:
+EXTRACT_16BITS	src/libnids.c	/^#define EXTRACT_16BITS(/;"	d	file:
+EXTRACT_LE_16BITS	src/libnids.c	/^#define EXTRACT_LE_16BITS(/;"	d	file:
+FC_FROM_DS	src/libnids.c	/^#define FC_FROM_DS(/;"	d	file:
+FC_SUBTYPE	src/libnids.c	/^#define FC_SUBTYPE(/;"	d	file:
+FC_TO_DS	src/libnids.c	/^#define FC_TO_DS(/;"	d	file:
+FC_TYPE	src/libnids.c	/^#define FC_TYPE(/;"	d	file:
+FC_WEP	src/libnids.c	/^#define FC_WEP(/;"	d	file:
+FIN_CONFIRMED	src/tcp.c	/^#define FIN_CONFIRMED /;"	d	file:
+FIN_SENT	src/tcp.c	/^#define FIN_SENT /;"	d	file:
+FREE_READ	src/ip_fragment.c	/^#define FREE_READ /;"	d	file:
+FREE_WRITE	src/ip_fragment.c	/^#define FREE_WRITE /;"	d	file:
+GFP_ATOMIC	src/ip_fragment.c	/^#define GFP_ATOMIC /;"	d	file:
+HAVE_GETTIMEOFDAY	src/config.h	/^#define HAVE_GETTIMEOFDAY /;"	d
+HAVE_INTTYPES_H	src/config.h	/^#define HAVE_INTTYPES_H /;"	d
+HAVE_LIBGTHREAD_2_0	src/config.h	/^#define HAVE_LIBGTHREAD_2_0 /;"	d
+HAVE_LIBNSL	src/config.h	/^#define HAVE_LIBNSL /;"	d
+HAVE_MEMORY_H	src/config.h	/^#define HAVE_MEMORY_H /;"	d
+HAVE_STDINT_H	src/config.h	/^#define HAVE_STDINT_H /;"	d
+HAVE_STDLIB_H	src/config.h	/^#define HAVE_STDLIB_H /;"	d
+HAVE_STRINGS_H	src/config.h	/^#define HAVE_STRINGS_H /;"	d
+HAVE_STRING_H	src/config.h	/^#define HAVE_STRING_H /;"	d
+HAVE_SYSLOG_H	src/config.h	/^#define HAVE_SYSLOG_H /;"	d
+HAVE_SYS_STAT_H	src/config.h	/^#define HAVE_SYS_STAT_H /;"	d
+HAVE_SYS_TIME_H	src/config.h	/^#define HAVE_SYS_TIME_H /;"	d
+HAVE_SYS_TYPES_H	src/config.h	/^#define HAVE_SYS_TYPES_H /;"	d
+HAVE_UNISTD_H	src/config.h	/^#define HAVE_UNISTD_H /;"	d
+ICMP_CODE	src/tcp.c	/^#define ICMP_CODE /;"	d	file:
+ICMP_DEST_UNREACH	src/tcp.c	/^#define ICMP_DEST_UNREACH /;"	d	file:
+ICMP_PORT_UNREACH	src/tcp.c	/^#define ICMP_PORT_UNREACH /;"	d	file:
+ICMP_PROT_UNREACH	src/tcp.c	/^#define ICMP_PROT_UNREACH /;"	d	file:
+ICMP_TYPE	src/tcp.c	/^#define ICMP_TYPE /;"	d	file:
+INSTALL	src/Makefile	/^INSTALL		= \/usr\/bin\/install -c$/;"	m
+IP defragmentation	doc/API.html	/^                2. <a name="IP defragmentation">IP defragmentation<\/a>$/;"	a
+IPFRAG_HIGH_THRESH	src/ip_fragment.c	/^#define IPFRAG_HIGH_THRESH	/;"	d	file:
+IPFRAG_LOW_THRESH	src/ip_fragment.c	/^#define IPFRAG_LOW_THRESH	/;"	d	file:
+IPF_ISF	src/ip_fragment.h	/^#define IPF_ISF /;"	d
+IPF_NEW	src/ip_fragment.h	/^#define IPF_NEW /;"	d
+IPF_NOTF	src/ip_fragment.h	/^#define IPF_NOTF /;"	d
+IPOPT_END	src/ip_options.c	/^#define IPOPT_END	/;"	d	file:
+IPOPT_EOL	src/ip_options.c	/^#define IPOPT_EOL /;"	d	file:
+IPOPT_LSRR	src/ip_options.c	/^#define IPOPT_LSRR	/;"	d	file:
+IPOPT_MINOFF	src/ip_options.c	/^#define IPOPT_MINOFF /;"	d	file:
+IPOPT_NOOP	src/ip_options.c	/^#define IPOPT_NOOP	/;"	d	file:
+IPOPT_NOP	src/ip_options.c	/^#define IPOPT_NOP /;"	d	file:
+IPOPT_OFFSET	src/ip_options.c	/^#define IPOPT_OFFSET /;"	d	file:
+IPOPT_OLEN	src/ip_options.c	/^#define IPOPT_OLEN /;"	d	file:
+IPOPT_OPTVAL	src/ip_options.c	/^#define IPOPT_OPTVAL /;"	d	file:
+IPOPT_RR	src/ip_options.c	/^#define IPOPT_RR	/;"	d	file:
+IPOPT_SEC	src/ip_options.c	/^#define IPOPT_SEC	/;"	d	file:
+IPOPT_SID	src/ip_options.c	/^#define IPOPT_SID	/;"	d	file:
+IPOPT_SSRR	src/ip_options.c	/^#define IPOPT_SSRR	/;"	d	file:
+IPOPT_TIMESTAMP	src/ip_options.c	/^#define IPOPT_TIMESTAMP	/;"	d	file:
+IPOPT_TS	src/ip_options.c	/^#define IPOPT_TS /;"	d	file:
+IPOPT_TS_PRESPEC	src/ip_options.c	/^#define	IPOPT_TS_PRESPEC	/;"	d	file:
+IPOPT_TS_TSANDADDR	src/ip_options.c	/^#define	IPOPT_TS_TSANDADDR	/;"	d	file:
+IPOPT_TS_TSONLY	src/ip_options.c	/^#define	IPOPT_TS_TSONLY	/;"	d	file:
+IP_CE	src/ip_fragment.c	/^#define IP_CE	/;"	d	file:
+IP_DF	src/ip_fragment.c	/^#define IP_DF	/;"	d	file:
+IP_FRAG_TIME	src/ip_fragment.c	/^#define IP_FRAG_TIME	/;"	d	file:
+IP_MF	src/ip_fragment.c	/^#define IP_MF	/;"	d	file:
+IP_OFFSET	src/ip_fragment.c	/^#define IP_OFFSET	/;"	d	file:
+Introduction	doc/API.html	/^                             1. <a name="Introduction">Introduction<\/a>$/;"	a
+LDFLAGS	samples/Makefile	/^LDFLAGS		= $/;"	m
+LDFLAGS	src/Makefile	/^LDFLAGS		= $/;"	m
+LIBS	samples/Makefile	/^LIBS		= -L..\/src -lnids $(PCAPLIB) $(LNETLIB) -lgthread-2.0 -lnsl $/;"	m
+LIBS	src/Makefile	/^LIBS		= -lgthread-2.0 -lnsl  -L\/usr\/local\/lib -lglib-2.0   -pthread -L\/usr\/local\/lib -lgthread-2.0 -lrt -lglib-2.0  $/;"	m
+LIBSHARED	src/Makefile	/^LIBSHARED      = libnids.so.1.24$/;"	m
+LIBSTATIC	src/Makefile	/^LIBSTATIC      = libnids.a$/;"	m
+LIBS_CFLAGS	samples/Makefile	/^LIBS_CFLAGS	= -I..\/src $(PCAP_CFLAGS) $(LNET_CFLAGS)$/;"	m
+LIBS_CFLAGS	src/Makefile	/^LIBS_CFLAGS	= $(PCAP_CFLAGS) $(LNET_CFLAGS) -I\/usr\/local\/include\/glib-2.0 -I\/usr\/local\/lib\/glib-2.0\/include   -pthread -I\/usr\/local\/include\/glib-2.0 -I\/usr\/local\/lib\/glib-2.0\/include  $/;"	m
+LLC_FRAME_SIZE	src/libnids.c	/^#define LLC_FRAME_SIZE /;"	d	file:
+LLC_OFFSET_TO_TYPE_FIELD	src/libnids.c	/^#define LLC_OFFSET_TO_TYPE_FIELD /;"	d	file:
+LNETLIB	samples/Makefile	/^LNETLIB		= -lnet$/;"	m
+LNETLIB	src/Makefile	/^LNETLIB		= -lnet$/;"	m
+LNET_CFLAGS	samples/Makefile	/^LNET_CFLAGS	= -D_BSD_SOURCE -D__BSD_SOURCE -D__FAVOR_BSD -DHAVE_NET_ETHERNET_H$/;"	m
+LNET_CFLAGS	src/Makefile	/^LNET_CFLAGS	= -D_BSD_SOURCE -D__BSD_SOURCE -D__FAVOR_BSD -DHAVE_NET_ETHERNET_H -DENABLE_TCPREASM$/;"	m
+LOG_MAX	samples/sniff.c	/^#define LOG_MAX /;"	d	file:
+Libnids structures	doc/API.html	/^        5. <a name="Libnids structures">Basic libnids structures and functions<\/a>$/;"	a
+MAXTTL	src/ip_options.c	/^#define MAXTTL	/;"	d	file:
+MAX_IPOPTLEN	src/ip_options.c	/^#define MAX_IPOPTLEN /;"	d	file:
+MAX_ROUTE	src/ip_options.c	/^#define MAX_ROUTE	/;"	d	file:
+NETDEBUG	src/ip_fragment.c	/^#define NETDEBUG(/;"	d	file:
+NIDS_CLOSE	src/nids.h	/^# define NIDS_CLOSE /;"	d
+NIDS_DATA	src/nids.h	/^# define NIDS_DATA /;"	d
+NIDS_DONT_CHKSUM	src/nids.h	/^# define NIDS_DONT_CHKSUM /;"	d
+NIDS_DO_CHKSUM	src/nids.h	/^# define NIDS_DO_CHKSUM /;"	d
+NIDS_EXITING	src/nids.h	/^# define NIDS_EXITING /;"	d
+NIDS_JUST_EST	src/nids.h	/^# define NIDS_JUST_EST /;"	d
+NIDS_MAJOR	src/nids.h	/^# define NIDS_MAJOR /;"	d
+NIDS_MINOR	src/nids.h	/^# define NIDS_MINOR /;"	d
+NIDS_RESET	src/nids.h	/^# define NIDS_RESET /;"	d
+NIDS_RESUME	src/nids.h	/^# define NIDS_RESUME /;"	d
+NIDS_TCP_RESUME_CLIENT	src/nids.h	/^# define NIDS_TCP_RESUME_CLIENT /;"	d
+NIDS_TCP_RESUME_NONE	src/nids.h	/^# define NIDS_TCP_RESUME_NONE /;"	d
+NIDS_TCP_RESUME_SERVER	src/nids.h	/^# define NIDS_TCP_RESUME_SERVER /;"	d
+NIDS_TIMED_OUT	src/nids.h	/^# define NIDS_TIMED_OUT /;"	d
+NIDS_WARN_IP	src/nids.h	/^  NIDS_WARN_IP = 1,$/;"	e	enum:__anon1
+NIDS_WARN_IP_HDR	src/nids.h	/^  NIDS_WARN_IP_HDR,$/;"	e	enum:__anon2
+NIDS_WARN_IP_INVLIST	src/nids.h	/^  NIDS_WARN_IP_INVLIST,$/;"	e	enum:__anon2
+NIDS_WARN_IP_OVERLAP	src/nids.h	/^  NIDS_WARN_IP_OVERLAP,$/;"	e	enum:__anon2
+NIDS_WARN_IP_OVERSIZED	src/nids.h	/^  NIDS_WARN_IP_OVERSIZED,$/;"	e	enum:__anon2
+NIDS_WARN_IP_SRR	src/nids.h	/^  NIDS_WARN_IP_SRR,$/;"	e	enum:__anon2
+NIDS_WARN_SCAN	src/nids.h	/^  NIDS_WARN_SCAN$/;"	e	enum:__anon1
+NIDS_WARN_TCP	src/nids.h	/^  NIDS_WARN_TCP,$/;"	e	enum:__anon1
+NIDS_WARN_TCP_BADFLAGS	src/nids.h	/^  NIDS_WARN_TCP_BADFLAGS$/;"	e	enum:__anon2
+NIDS_WARN_TCP_BIGQUEUE	src/nids.h	/^  NIDS_WARN_TCP_BIGQUEUE,$/;"	e	enum:__anon2
+NIDS_WARN_TCP_HDR	src/nids.h	/^  NIDS_WARN_TCP_HDR,$/;"	e	enum:__anon2
+NIDS_WARN_TCP_TOOMUCH	src/nids.h	/^  NIDS_WARN_TCP_TOOMUCH,$/;"	e	enum:__anon2
+NIDS_WARN_UDP	src/nids.h	/^  NIDS_WARN_UDP,$/;"	e	enum:__anon1
+NIDS_WARN_UNDEFINED	src/nids.h	/^  NIDS_WARN_UNDEFINED = 0,$/;"	e	enum:__anon2
+NR_ICMP_UNREACH	src/tcp.c	/^#define NR_ICMP_UNREACH /;"	d	file:
+OBJS	src/Makefile	/^OBJS		= checksum.o ip_fragment.o ip_options.o killtcp.o \\$/;"	m
+OBJS_SHARED	src/Makefile	/^OBJS_SHARED	= $(OBJS:.o=_pic.o)$/;"	m
+PACKAGE_BUGREPORT	src/config.h	/^#define PACKAGE_BUGREPORT /;"	d
+PACKAGE_NAME	src/config.h	/^#define PACKAGE_NAME /;"	d
+PACKAGE_STRING	src/config.h	/^#define PACKAGE_STRING /;"	d
+PACKAGE_TARNAME	src/config.h	/^#define PACKAGE_TARNAME /;"	d
+PACKAGE_VERSION	src/config.h	/^#define PACKAGE_VERSION /;"	d
+PATLEN	samples/overflows.c	/^#define PATLEN /;"	d	file:
+PATTERN	samples/overflows.c	/^#define PATTERN /;"	d	file:
+PCAPLIB	samples/Makefile	/^PCAPLIB		= -lpcap$/;"	m
+PCAPLIB	src/Makefile	/^PCAPLIB		= -lpcap$/;"	m
+PCAP_CFLAGS	samples/Makefile	/^PCAP_CFLAGS	= -I\/usr\/include\/pcap$/;"	m
+PCAP_CFLAGS	src/Makefile	/^PCAP_CFLAGS	= -I\/usr\/include\/pcap$/;"	m
+RANLIB	src/Makefile	/^RANLIB		= ranlib$/;"	m
+START_CAP_QUEUE_PROCESS_THREAD	src/libnids.c	/^#define START_CAP_QUEUE_PROCESS_THREAD(/;"	d	file:
+STDC_HEADERS	src/config.h	/^#define STDC_HEADERS /;"	d
+STOP_CAP_QUEUE_PROCESS_THREAD	src/libnids.c	/^#define STOP_CAP_QUEUE_PROCESS_THREAD(/;"	d	file:
+STRUCT_ICMP	src/tcp.c	/^#define STRUCT_ICMP /;"	d	file:
+SZLACZEK	samples/sniff.c	/^#define SZLACZEK /;"	d	file:
+TCP stream assembly	doc/API.html	/^            3. <a name="TCP stream assembly">TCP stream assembly<\/a>$/;"	a
+TCP_CLOSE	src/tcp.c	/^  TCP_CLOSE,$/;"	e	enum:__anon3	file:
+TCP_CLOSE_WAIT	src/tcp.c	/^  TCP_CLOSE_WAIT,$/;"	e	enum:__anon3	file:
+TCP_CLOSING	src/tcp.c	/^  TCP_CLOSING			\/* now a valid state *\/$/;"	e	enum:__anon3	file:
+TCP_ESTABLISHED	src/tcp.c	/^  TCP_ESTABLISHED = 1,$/;"	e	enum:__anon3	file:
+TCP_FIN_WAIT1	src/tcp.c	/^  TCP_FIN_WAIT1,$/;"	e	enum:__anon3	file:
+TCP_FIN_WAIT2	src/tcp.c	/^  TCP_FIN_WAIT2,$/;"	e	enum:__anon3	file:
+TCP_LAST_ACK	src/tcp.c	/^  TCP_LAST_ACK,$/;"	e	enum:__anon3	file:
+TCP_LISTEN	src/tcp.c	/^  TCP_LISTEN,$/;"	e	enum:__anon3	file:
+TCP_SYN_RECV	src/tcp.c	/^  TCP_SYN_RECV,$/;"	e	enum:__anon3	file:
+TCP_SYN_SENT	src/tcp.c	/^  TCP_SYN_SENT,$/;"	e	enum:__anon3	file:
+TCP_TIME_WAIT	src/tcp.c	/^  TCP_TIME_WAIT,$/;"	e	enum:__anon3	file:
+TIME_WITH_SYS_TIME	src/config.h	/^#define TIME_WITH_SYS_TIME /;"	d
+T_CTRL	src/libnids.c	/^#define T_CTRL /;"	d	file:
+T_DATA	src/libnids.c	/^#define T_DATA /;"	d	file:
+T_MGMT	src/libnids.c	/^#define T_MGMT /;"	d	file:
+T_RESV	src/libnids.c	/^#define T_RESV /;"	d	file:
+UH_DPORT	src/libnids.c	/^#define UH_DPORT /;"	d	file:
+UH_SPORT	src/libnids.c	/^#define UH_SPORT /;"	d	file:
+UH_ULEN	src/libnids.c	/^#define UH_ULEN /;"	d	file:
+UNUSED	src/ip_fragment.c	/^#define UNUSED /;"	d	file:
+_NIDS_CHECKSUM_H	src/checksum.h	/^#define _NIDS_CHECKSUM_H$/;"	d
+_NIDS_IP_FRAGMENT_H	src/ip_fragment.h	/^#define _NIDS_IP_FRAGMENT_H$/;"	d
+_NIDS_NIDS_H	src/nids.h	/^# define _NIDS_NIDS_H$/;"	d
+_NIDS_SCAN_H	src/scan.h	/^#define _NIDS_SCAN_H$/;"	d
+_NIDS_TCP_H	src/tcp.h	/^#define _NIDS_TCP_H$/;"	d
+_NIDS_UTIL_H	src/util.h	/^#define _NIDS_UTIL_H$/;"	d
+_TCP_CONN_POOL_H_	src/tcp_conn_pool.h	/^#define _TCP_CONN_POOL_H_$/;"	d
+__data	src/ip_options.c	/^  unsigned char __data[];$/;"	m	struct:options	file:
+__pad1	src/ip_options.c	/^  unsigned char __pad1;$/;"	m	struct:options	file:
+__pad2	src/ip_options.c	/^  unsigned char __pad2;$/;"	m	struct:options	file:
+__pad3	src/ip_options.c	/^  unsigned char __pad3;$/;"	m	struct:options	file:
+__u16	src/ip_options.c	/^#define __u16 /;"	d	file:
+__u32	src/ip_options.c	/^#define __u32 /;"	d	file:
+__u8	src/ip_options.c	/^#define __u8 /;"	d	file:
+_ascii	configure	/^ _ascii (); _ebcdic ();$/;"	f
+a_tcp	src/nids.h	/^  struct tcp_stream *a_tcp;$/;"	m	struct:tcp_timeout	typeref:struct:tcp_timeout::tcp_stream
+ack	src/tcp.h	/^  u_int ack;$/;"	m	struct:skbuff
+ack_seq	src/nids.h	/^  u_int ack_seq;$/;"	m	struct:half_stream
+acked	src/nids.h	/^  u_int acked;$/;"	m	struct:half_stream
+action	src/nids.h	/^	u_int action;$/;"	m	struct:nids_chksum_ctl
+add2buf	src/tcp.c	/^add2buf(struct half_stream * rcv, char *data, int datalen)$/;"	f	file:
+add_from_skb	src/tcp.c	/^add_from_skb(struct tcp_stream * a_tcp, struct half_stream * rcv,$/;"	f	file:
+add_tcp_closing_timeout	src/tcp.c	/^add_tcp_closing_timeout(struct tcp_stream * a_tcp)$/;"	f	file:
+add_timer	src/ip_fragment.c	/^add_timer(struct timer_list * x)$/;"	f	file:
+add_to_path	samples/overflows.c	/^add_to_path (char *path, char *elem, int len)$/;"	f
+addr	src/nids.h	/^  struct tuple4 addr;$/;"	m	struct:tcp_stream	typeref:struct:tcp_stream::tuple4
+addr	src/scan.h	/^  u_int addr;$/;"	m	struct:host
+addr	src/scan.h	/^  u_int addr;$/;"	m	struct:scan
+adres	samples/overflows.c	/^adres (struct tuple4 addr)$/;"	f
+adres	samples/printall.c	/^adres (struct tuple4 addr)$/;"	f
+adres	samples/sniff.c	/^adres (struct tuple4 addr)$/;"	f
+after	src/util.h	/^after(u_int seq1, u_int seq2)$/;"	f
+all_local_ipaddrs_chksum_disable	samples/chksum_ctl.c	/^int all_local_ipaddrs_chksum_disable()$/;"	f
+atomic_add	src/ip_fragment.c	/^atomic_add(int ile, int *co)$/;"	f	file:
+atomic_sub	src/ip_fragment.c	/^atomic_sub(int ile, int *co)$/;"	f	file:
+b_comp	src/util.h	/^#define b_comp(/;"	d
+before	src/util.h	/^before(u_int seq1, u_int seq2)$/;"	f
+bucket	src/tcp_conn_pool.c	/^    GHashTable **bucket; \/\/ value of the hash table is tcp_stream*$/;"	m	struct:conn_pool_t	file:
+bucket_size	src/tcp_conn_pool.c	/^    int bucket_size;$/;"	m	struct:conn_pool_t	file:
+bufsize	src/nids.h	/^  int bufsize;$/;"	m	struct:half_stream
+call_ip_frag_procs	src/libnids.c	/^static void call_ip_frag_procs(void *data,bpf_u_int32 caplen)$/;"	f	file:
+cap_queue	src/libnids.c	/^static GAsyncQueue *cap_queue;$/;"	v	file:
+cap_queue_item	src/libnids.c	/^struct cap_queue_item {$/;"	s	file:
+cap_queue_process_thread	src/libnids.c	/^static void cap_queue_process_thread()$/;"	f	file:
+caplen	src/libnids.c	/^     bpf_u_int32 caplen;$/;"	m	struct:cap_queue_item	file:
+check	src/ip_options.c	/^  __u16 check;$/;"	m	struct:iphdr	file:
+clear_tcp_stream	src/tcp_conn_pool.c	/^G_INLINE_FUNC void clear_tcp_stream(struct tcp_stream *tcp_obj) {$/;"	f
+client	src/nids.h	/^  struct half_stream client;$/;"	m	struct:tcp_stream	typeref:struct:tcp_stream::half_stream
+collect	src/nids.h	/^  char collect;$/;"	m	struct:half_stream
+collect_urg	src/nids.h	/^  char collect_urg;$/;"	m	struct:half_stream
+conn_count	src/tcp_conn_pool.c	/^    int conn_count;$/;"	m	struct:conn_pool_t	file:
+conn_pool_	src/tcp_conn_pool.c	/^static conn_pool_t *conn_pool_ = NULL;$/;"	v	file:
+conn_pool_add	src/tcp_conn_pool.c	/^void* conn_pool_add(struct tuple4 *addr_tuple4) {$/;"	f
+conn_pool_add_new_tcp	src/tcp.c	/^conn_pool_add_new_tcp(struct tcphdr * this_tcphdr, struct ip * this_iphdr) {$/;"	f	file:
+conn_pool_del	src/tcp_conn_pool.c	/^void conn_pool_del(struct tcp_stream *tcp_obj) {$/;"	f
+conn_pool_destroy	src/tcp_conn_pool.c	/^void conn_pool_destroy() {$/;"	f
+conn_pool_find	src/tcp_conn_pool.c	/^void* conn_pool_find(struct tuple4 *addr) {$/;"	f
+conn_pool_init	src/tcp_conn_pool.c	/^void conn_pool_init(int bucket_size, int max_conn_count) {$/;"	f
+conn_pool_t	src/tcp_conn_pool.c	/^typedef struct conn_pool_t {$/;"	s	file:
+conn_pool_t	src/tcp_conn_pool.c	/^}conn_pool_t;$/;"	t	typeref:struct:conn_pool_t	file:
+count	src/nids.h	/^  int count;$/;"	m	struct:half_stream
+count_new	src/nids.h	/^  int count_new;$/;"	m	struct:half_stream
+count_new_urg	src/nids.h	/^  u_char count_new_urg;$/;"	m	struct:half_stream
+csum_fold	src/checksum.c	/^csum_fold(u_int sum)$/;"	f	file:
+csum_partial	src/checksum.c	/^csum_partial(const u_char * buff, int len, u_int sum)$/;"	f
+csum_tcpudp_magic	src/checksum.c	/^csum_tcpudp_magic(u_int saddr, u_int daddr, u_short len,$/;"	f	file:
+curr_ts	src/nids.h	/^  u_int curr_ts; $/;"	m	struct:half_stream
+currdir	samples/overflows.c	/^  char *currdir;$/;"	m	struct:supp	file:
+daddr	src/checksum.c	/^  u_int daddr;      $/;"	m	struct:psuedo_hdr	file:
+daddr	src/ip_options.c	/^  __u32 daddr;$/;"	m	struct:iphdr	file:
+daddr	src/nids.h	/^  u_int daddr;$/;"	m	struct:tuple4
+data	src/ip_fragment.c	/^  char *data;$/;"	m	struct:sk_buff	file:
+data	src/ip_fragment.c	/^  unsigned long data;$/;"	m	struct:timer_list	file:
+data	src/ip_options.c	/^  __u32 data[9];$/;"	m	struct:timestamp	file:
+data	src/libnids.c	/^     void *data;$/;"	m	struct:cap_queue_item	file:
+data	src/nids.h	/^  char *data;$/;"	m	struct:half_stream
+data	src/tcp.h	/^  void *data;$/;"	m	struct:skbuff
+data	src/util.h	/^  void *data;$/;"	m	struct:lurker_node
+del_tcp_closing_timeout	src/tcp.c	/^del_tcp_closing_timeout(struct tcp_stream * a_tcp)$/;"	f	file:
+del_timer	src/ip_fragment.c	/^del_timer(struct timer_list * x)$/;"	f	file:
+desc	src/libnids.c	/^static pcap_t *desc = NULL;$/;"	v	file:
+dest	src/nids.h	/^  u_short dest;$/;"	m	struct:tuple4
+detect_ftpd	samples/overflows.c	/^detect_ftpd (struct tcp_stream *a_tcp, struct supp **param)$/;"	f
+detect_imap	samples/overflows.c	/^detect_imap (struct tcp_stream *a_tcp)$/;"	f
+detect_scan	src/scan.c	/^detect_scan(struct ip * iph)$/;"	f
+dev_addon	src/nids.h	/^  int dev_addon;$/;"	m	struct:nids_prm
+device	src/nids.h	/^  char *device;$/;"	m	struct:nids_prm
+do_detect_ftp	samples/overflows.c	/^do_detect_ftp (struct tcp_stream *a_tcp, struct supp **param_ptr)$/;"	f
+do_log	samples/sniff.c	/^do_log (char *adres_txt, char *data, int ile)$/;"	f
+dontchksum	src/checksum.c	/^static int dontchksum(unsigned int ip)$/;"	f	file:
+dres	doc/API.html	/^<strong><font color="#4169E1"><a name="dres"><\/a>adres (struct tuple4 addr)<\/font><\/strong>$/;"	a
+end	src/ip_fragment.c	/^  int end;			\/* last byte of data in datagram        *\/$/;"	m	struct:ipfrag	file:
+exec_prefix	src/Makefile	/^exec_prefix	= \/usr\/local$/;"	m
+expires	src/ip_fragment.c	/^  int expires;$/;"	m	struct:timer_list	file:
+faddr	src/ip_options.c	/^  __u32 faddr;			\/* Saved first hop address *\/$/;"	m	struct:options	file:
+faq	doc/API.html	/^<center><h2><a name="faq">8. FAQ<\/a><\/h2><\/center>$/;"	a
+filename	src/nids.h	/^  char *filename;$/;"	m	struct:nids_prm
+fin	src/tcp.h	/^  char fin;$/;"	m	struct:skbuff
+final_free_tcp_stream	src/tcp_conn_pool.c	/^static void final_free_tcp_stream(struct tcp_stream *tcp_obj) {$/;"	f	file:
+find_stream	src/tcp.c	/^find_stream(struct tcphdr * this_tcphdr, struct ip * this_iphdr,$/;"	f
+first_data_seq	src/nids.h	/^  u_int first_data_seq;$/;"	m	struct:half_stream
+flags	src/ip_options.c	/^  __u8 flags:4, overflow:4;$/;"	m	struct:timestamp	file:
+flags	src/ip_options.c	/^  __u8 overflow:4, flags:4;$/;"	m	struct:timestamp	file:
+flags	src/scan.h	/^  u_char flags;$/;"	m	struct:scan
+frag_index	src/ip_fragment.c	/^frag_index(struct ip * iph)$/;"	f	file:
+frag_kfree_s	src/ip_fragment.c	/^frag_kfree_s(void *ptr, int len)$/;"	f	file:
+frag_kfree_skb	src/ip_fragment.c	/^frag_kfree_skb(struct sk_buff * skb, int type)$/;"	f	file:
+frag_kmalloc	src/ip_fragment.c	/^frag_kmalloc(int size, int dummy)$/;"	f	file:
+frag_off	src/ip_options.c	/^  __u16 frag_off;$/;"	m	struct:iphdr	file:
+fragments	src/ip_fragment.c	/^  struct ipfrag *fragments;	\/* linked list of received fragments    *\/$/;"	m	struct:ipq	typeref:struct:ipq::ipfrag	file:
+fragtable	src/ip_fragment.c	/^static struct hostfrags **fragtable;$/;"	v	typeref:struct:hostfrags	file:
+free_queue	src/tcp_conn_pool.c	/^    GQueue *free_queue;$/;"	m	struct:conn_pool_t	file:
+function	src/ip_fragment.c	/^  void (*function)();$/;"	m	struct:timer_list	file:
+g_thread_init	configure	/^g_thread_init ();$/;"	f
+gen_ip_frag_proc	src/libnids.c	/^static void gen_ip_frag_proc(u_char * data, int len)$/;"	f	file:
+gen_ip_proc	src/libnids.c	/^static void gen_ip_proc(u_char * data, int skblen)$/;"	f	file:
+gerror	src/libnids.c	/^static GError *gerror = NULL;$/;"	v	file:
+get_addr_from_ifreq	samples/chksum_ctl.c	/^unsigned int get_addr_from_ifreq(struct ifreq *iface)$/;"	f
+get_all_ifaces	samples/chksum_ctl.c	/^static int get_all_ifaces(struct ifreq **ifaces, int *count)$/;"	f	file:
+get_ts	src/tcp.c	/^static int get_ts(struct tcphdr * this_tcphdr, unsigned int * ts)$/;"	f	file:
+get_wscale	src/tcp.c	/^static int get_wscale(struct tcphdr * this_tcphdr, unsigned int * ws)$/;"	f	file:
+gethostbyname	configure	/^gethostbyname ();$/;"	f
+getrnd	src/hash.c	/^getrnd ()$/;"	f	file:
+gettime	src/scan.c	/^gettime()$/;"	f	file:
+half_stream	src/nids.h	/^struct half_stream$/;"	s
+handle_ack	src/tcp.c	/^handle_ack(struct half_stream * snd, u_int acknum)$/;"	f	file:
+hash_index	src/ip_fragment.c	/^  int hash_index;$/;"	m	struct:hostfrags	file:
+hash_index	src/nids.h	/^  int hash_index;$/;"	m	struct:tcp_stream
+hash_size	src/ip_fragment.c	/^static int hash_size;$/;"	v	file:
+hashhost	src/scan.c	/^static struct host **hashhost;$/;"	v	typeref:struct:host	file:
+hf	src/ip_fragment.c	/^  struct hostfrags *hf;$/;"	m	struct:ipq	typeref:struct:ipq::hostfrags	file:
+host	src/scan.h	/^struct host {$/;"	s
+hostfrag_create	src/ip_fragment.c	/^hostfrag_create(struct ip * iph)$/;"	f	file:
+hostfrag_find	src/ip_fragment.c	/^hostfrag_find(struct ip * iph)$/;"	f	file:
+hostfrags	src/ip_fragment.c	/^struct hostfrags {$/;"	s	file:
+id	src/ip_options.c	/^  __u16 id;$/;"	m	struct:iphdr	file:
+ihl	src/ip_options.c	/^  __u8 version:4, ihl:4;$/;"	m	struct:iphdr	file:
+ihlen	src/ip_fragment.c	/^  short ihlen;			\/* length of the IP header              *\/$/;"	m	struct:ipq	file:
+includedir	src/Makefile	/^includedir	= ${prefix}\/include$/;"	m
+init_hash	src/hash.c	/^init_hash ()$/;"	f
+init_procs	src/libnids.c	/^static void init_procs()$/;"	f	file:
+initialized	src/killtcp.c	/^static int initialized = 0;$/;"	v	file:
+initiate_tcp_resume	src/tcp.c	/^initiate_tcp_resume(struct tcphdr * this_tcphdr, struct ip * this_iphdr, int direction) {$/;"	f	file:
+install_prefix	src/Makefile	/^install_prefix	=$/;"	m
+int_ntoa	samples/overflows.c	/^#define int_ntoa(/;"	d	file:
+int_ntoa	samples/printall.c	/^#define int_ntoa(/;"	d	file:
+int_ntoa	samples/sniff.c	/^#define int_ntoa(/;"	d	file:
+int_ntoa	src/ip_fragment.c	/^#define int_ntoa(/;"	d	file:
+int_ntoa	src/libnids.c	/^#define int_ntoa(/;"	d	file:
+ip	src/ip_fragment.c	/^  u_int ip;$/;"	m	struct:hostfrags	file:
+ip_check_ext	src/checksum.c	/^ip_check_ext(register u_short *addr, register int len, int addon)$/;"	f
+ip_chk_addr	src/ip_options.c	/^#define ip_chk_addr(/;"	d	file:
+ip_compute_csum	src/checksum.c	/^ip_compute_csum(u_char * buff, int len)$/;"	f
+ip_compute_csum	src/checksum.c	/^ip_compute_csum(u_short *addr, int len)$/;"	f
+ip_create	src/ip_fragment.c	/^ip_create(struct ip * iph)$/;"	f	file:
+ip_defrag	src/ip_fragment.c	/^ip_defrag(struct ip *iph, struct sk_buff *skb)$/;"	f	file:
+ip_defrag_stub	src/ip_fragment.c	/^ip_defrag_stub(struct ip *iph, struct ip **defrag)$/;"	f
+ip_done	src/ip_fragment.c	/^ip_done(struct ipq * qp)$/;"	f	file:
+ip_evictor	src/ip_fragment.c	/^ip_evictor(void)$/;"	f	file:
+ip_expire	src/ip_fragment.c	/^ip_expire(unsigned long arg)$/;"	f	file:
+ip_fast_csum	src/checksum.c	/^inline u_short ip_fast_csum(u_char * iph, u_int ihl)$/;"	f
+ip_fast_csum	src/checksum.c	/^ip_fast_csum(u_short *addr, int len)$/;"	f
+ip_filter	src/nids.h	/^  int (*ip_filter) ();$/;"	m	struct:nids_prm
+ip_find	src/ip_fragment.c	/^ip_find(struct ip * iph)$/;"	f	file:
+ip_frag_create	src/ip_fragment.c	/^ip_frag_create(int offset, int end, struct sk_buff * skb, unsigned char *ptr)$/;"	f	file:
+ip_frag_exit	src/ip_fragment.c	/^ip_frag_exit(void)$/;"	f
+ip_frag_init	src/ip_fragment.c	/^ip_frag_init(int n)$/;"	f
+ip_frag_mem	src/ip_fragment.c	/^  int ip_frag_mem;$/;"	m	struct:hostfrags	file:
+ip_frag_procs	src/libnids.c	/^static struct proc_node *ip_frag_procs;$/;"	v	typeref:struct:proc_node	file:
+ip_free	src/ip_fragment.c	/^ip_free(struct ipq * qp)$/;"	f	file:
+ip_glue	src/ip_fragment.c	/^ip_glue(struct ipq * qp)$/;"	f	file:
+ip_options_compile	src/ip_options.c	/^ip_options_compile(unsigned char *iph)$/;"	f
+ip_procs	src/libnids.c	/^static struct proc_node *ip_procs;$/;"	v	typeref:struct:proc_node	file:
+ip_tag	src/killtcp.c	/^    ip_tag = LIBNET_PTAG_INITIALIZER;$/;"	v	file:
+ipfrag	src/ip_fragment.c	/^struct ipfrag {$/;"	s	file:
+iph	src/ip_fragment.c	/^  struct ip *iph;		\/* pointer to IP header                 *\/$/;"	m	struct:ipq	typeref:struct:ipq::ip	file:
+iphdr	src/ip_options.c	/^struct iphdr {$/;"	s	file:
+ipq	src/ip_fragment.c	/^struct ipq {$/;"	s	file:
+ipqueue	src/ip_fragment.c	/^  struct ipq *ipqueue;$/;"	m	struct:hostfrags	typeref:struct:hostfrags::ipq	file:
+is_changed	src/ip_options.c	/^       is_changed:1,		\/* IP checksum more not valid		 *\/$/;"	m	struct:options	file:
+is_data	src/ip_options.c	/^       is_data:1,		\/* Options in __data, rather than skb	 *\/$/;"	m	struct:options	file:
+is_setbyuser	src/ip_options.c	/^  unsigned char is_setbyuser:1,	\/* Set by setsockopt?			 *\/$/;"	m	struct:options	file:
+is_strictroute	src/ip_options.c	/^       is_strictroute:1,	\/* Strict source route			 *\/$/;"	m	struct:options	file:
+item	src/util.h	/^  void (*item)();$/;"	m	struct:lurker_node
+item	src/util.h	/^  void (*item)();$/;"	m	struct:proc_node
+jiffies	src/ip_fragment.c	/^jiffies()$/;"	f	file:
+kfree_skb	src/ip_fragment.c	/^kfree_skb(struct sk_buff * skb, int type)$/;"	f	file:
+l	src/killtcp.c	/^static libnet_t *l = 0;$/;"	v	file:
+last_newline	samples/overflows.c	/^  int last_newline;$/;"	m	struct:supp	file:
+len	src/checksum.c	/^  u_short len;        $/;"	m	struct:psuedo_hdr	file:
+len	src/ip_fragment.c	/^  int len;			\/* length of this fragment              *\/$/;"	m	struct:ipfrag	file:
+len	src/ip_fragment.c	/^  int len;			\/* total length of original datagram    *\/$/;"	m	struct:ipq	file:
+len	src/ip_options.c	/^  __u8 len;$/;"	m	struct:timestamp	file:
+len	src/tcp.h	/^  u_int len;$/;"	m	struct:skbuff
+libdir	src/Makefile	/^libdir		= ${exec_prefix}\/lib$/;"	m
+libnetsock	src/killtcp.c	/^static int libnetsock = 0;$/;"	v	file:
+linktype	src/libnids.c	/^static int linktype;$/;"	v	file:
+list	src/nids.h	/^  struct skbuff *list;$/;"	m	struct:half_stream	typeref:struct:half_stream::skbuff
+listeners	src/nids.h	/^  struct lurker_node *listeners;$/;"	m	struct:tcp_stream	typeref:struct:tcp_stream::lurker_node
+listtail	src/nids.h	/^  struct skbuff *listtail;$/;"	m	struct:half_stream	typeref:struct:half_stream::skbuff
+logfd	samples/sniff.c	/^int logfd;$/;"	v
+lurker_node	src/util.h	/^struct lurker_node {$/;"	s
+mac	src/ip_fragment.c	/^  unsigned char *mac;		\/* pointer to MAC header                *\/$/;"	m	struct:ipq	file:
+maclen	src/ip_fragment.c	/^  short maclen;			\/* length of the MAC header             *\/$/;"	m	struct:ipq	file:
+main	config.guess	/^		main()$/;"	f
+main	config.guess	/^	main ()$/;"	f
+main	config.guess	/^main ()$/;"	f
+main	doc/API.html	/^<strong><font color="#4169E1"><a name="main"><\/a>int $/;"	a
+main	samples/chksum_ctl.c	/^main()$/;"	f
+main	samples/nids_next.c	/^main ()$/;"	f
+main	samples/overflows.c	/^main ()$/;"	f
+main	samples/printall.c	/^main ()$/;"	f
+main	samples/sniff.c	/^main ()$/;"	f
+mandir	src/Makefile	/^mandir		= ${prefix}\/man$/;"	m
+mask	src/nids.h	/^	u_int mask;$/;"	m	struct:nids_chksum_ctl
+max_conn_count	src/tcp_conn_pool.c	/^    int max_conn_count;$/;"	m	struct:conn_pool_t	file:
+max_free_count	src/tcp_conn_pool.c	/^    int max_free_count;$/;"	m	struct:conn_pool_t	file:
+misc hacks	doc/API.html	/^<center><h2><a name="misc hacks">6. Misc useful hacks<\/a>$/;"	a
+mkhash	src/hash.c	/^mkhash (u_int src, u_short sport, u_int dest, u_short dport)$/;"	f
+mknew	src/util.h	/^#define mknew(/;"	d
+modtime	src/scan.h	/^  int modtime;$/;"	m	struct:host
+multiproc	src/nids.h	/^  int multiproc;$/;"	m	struct:nids_prm
+my_tcp_check	src/checksum.c	/^my_tcp_check(struct tcphdr *th, int len, u_int saddr, u_int daddr)$/;"	f
+my_udp_check	src/checksum.c	/^my_udp_check(void *u, int len, u_int saddr, u_int daddr)$/;"	f
+n_hosts	src/nids.h	/^  int n_hosts;$/;"	m	struct:nids_prm
+n_packets	src/scan.h	/^  int n_packets;$/;"	m	struct:host
+n_tcp_streams	src/nids.h	/^  int n_tcp_streams;$/;"	m	struct:nids_prm
+nchk	src/checksum.c	/^static struct nids_chksum_ctl * nchk;$/;"	v	typeref:struct:nids_chksum_ctl	file:
+netaddr	src/nids.h	/^	u_int netaddr;$/;"	m	struct:nids_chksum_ctl
+new features	doc/API.html	/^<center><h2><a name="new features">7. New features in version 1.21<\/a><\/h2><\/center>$/;"	a
+newest_conn	src/tcp_conn_pool.c	/^    struct tcp_stream *newest_conn;   \/\/ the newest node int hash table$/;"	m	struct:conn_pool_t	typeref:struct:conn_pool_t::tcp_stream	file:
+next	src/ip_fragment.c	/^  struct hostfrags *next;$/;"	m	struct:hostfrags	typeref:struct:hostfrags::hostfrags	file:
+next	src/ip_fragment.c	/^  struct ipfrag *next;		\/* linked list pointers                 *\/$/;"	m	struct:ipfrag	typeref:struct:ipfrag::ipfrag	file:
+next	src/ip_fragment.c	/^  struct ipq *next;		\/* linked list pointers                 *\/$/;"	m	struct:ipq	typeref:struct:ipq::ipq	file:
+next	src/ip_fragment.c	/^  struct timer_list *next;$/;"	m	struct:timer_list	typeref:struct:timer_list::timer_list	file:
+next	src/nids.h	/^  struct tcp_timeout *next;$/;"	m	struct:tcp_timeout	typeref:struct:tcp_timeout::tcp_timeout
+next	src/scan.h	/^  struct host *next;$/;"	m	struct:host	typeref:struct:host::host
+next	src/tcp.h	/^  struct skbuff *next;$/;"	m	struct:skbuff	typeref:struct:skbuff::skbuff
+next	src/util.h	/^  struct lurker_node *next;$/;"	m	struct:lurker_node	typeref:struct:lurker_node::lurker_node
+next	src/util.h	/^  struct proc_node *next;$/;"	m	struct:proc_node	typeref:struct:proc_node::proc_node
+next_free	src/nids.h	/^  struct tcp_stream *next_free;$/;"	m	struct:tcp_stream	typeref:struct:tcp_stream::tcp_stream
+next_node	src/nids.h	/^  struct tcp_stream *next_node;$/;"	m	struct:tcp_stream	typeref:struct:tcp_stream::tcp_stream
+next_time	src/nids.h	/^  struct tcp_stream *next_time;$/;"	m	struct:tcp_stream	typeref:struct:tcp_stream::tcp_stream
+nids_chksum_ctl	src/nids.h	/^struct nids_chksum_ctl {$/;"	s
+nids_discard	src/tcp.c	/^nids_discard(struct tcp_stream * a_tcp, int num)$/;"	f
+nids_dispatch	src/libnids.c	/^int nids_dispatch(int cnt)$/;"	f
+nids_errbuf	src/libnids.c	/^char nids_errbuf[PCAP_ERRBUF_SIZE];$/;"	v
+nids_exit	src/libnids.c	/^void nids_exit()$/;"	f
+nids_free_tcp_stream	src/tcp.c	/^nids_free_tcp_stream(struct tcp_stream * a_tcp)$/;"	f
+nids_getfd	src/libnids.c	/^int nids_getfd()$/;"	f
+nids_init	src/libnids.c	/^int nids_init()$/;"	f
+nids_ip_filter	src/libnids.c	/^static int nids_ip_filter(struct ip *x, int len)$/;"	f	file:
+nids_killtcp	src/killtcp.c	/^void nids_killtcp(struct tcp_stream *a_tcp)$/;"	f
+nids_killtcp_seq	src/killtcp.c	/^void nids_killtcp_seq(struct tcp_stream *a_tcp, int seqoff)$/;"	f
+nids_last_pcap_data	src/libnids.c	/^u_char *nids_last_pcap_data = NULL;$/;"	v
+nids_last_pcap_header	src/libnids.c	/^struct pcap_pkthdr * nids_last_pcap_header = NULL;$/;"	v	typeref:struct:pcap_pkthdr
+nids_linkoffset	src/libnids.c	/^u_int nids_linkoffset = 0;$/;"	v
+nids_next	doc/API.html	/^<a name="nids_next"><\/a>$/;"	a
+nids_next	src/libnids.c	/^int nids_next()$/;"	f
+nids_no_mem	src/util.c	/^nids_no_mem(char *func)$/;"	f
+nids_params	src/libnids.c	/^struct nids_prm nids_params = {$/;"	v	typeref:struct:nids_prm
+nids_pcap_handler	src/libnids.c	/^void nids_pcap_handler(u_char * par, struct pcap_pkthdr *hdr, u_char * data)$/;"	f
+nids_prm	src/nids.h	/^struct nids_prm$/;"	s
+nids_register_chksum_ctl	src/checksum.c	/^void nids_register_chksum_ctl(struct nids_chksum_ctl * ptr, int nr)$/;"	f
+nids_register_ip	src/libnids.c	/^void nids_register_ip(void (*x))$/;"	f
+nids_register_ip_frag	src/libnids.c	/^void nids_register_ip_frag(void (*x))$/;"	f
+nids_register_tcp	src/tcp.c	/^nids_register_tcp(void (*x))$/;"	f
+nids_register_tcp_resume	src/tcp.c	/^nids_register_tcp_resume(void (*x))$/;"	f
+nids_register_udp	src/libnids.c	/^void nids_register_udp(void (*x))$/;"	f
+nids_run	src/libnids.c	/^int nids_run()$/;"	f
+nids_state	src/nids.h	/^  char nids_state;$/;"	m	struct:tcp_stream
+nids_syslog	src/libnids.c	/^static void nids_syslog(int type, int errnum, struct ip *iph, void *data)$/;"	f	file:
+nids_tcp_timeouts	src/tcp.c	/^struct tcp_timeout *nids_tcp_timeouts = 0;$/;"	v	typeref:struct:tcp_timeout
+nids_unregister_ip	src/libnids.c	/^void nids_unregister_ip(void (*x))$/;"	f
+nids_unregister_ip_frag	src/libnids.c	/^void nids_unregister_ip_frag(void (*x))$/;"	f
+nids_unregister_tcp	src/tcp.c	/^nids_unregister_tcp(void (*x))$/;"	f
+nids_unregister_tcp_resume	src/tcp.c	/^nids_unregister_tcp_resume(void (*x))$/;"	f
+nids_unregister_udp	src/libnids.c	/^void nids_unregister_udp(void (*x))$/;"	f
+nids_warnings	src/libnids.c	/^char *nids_warnings[] = {$/;"	v
+no_mem	src/nids.h	/^  void (*no_mem) (char *);$/;"	m	struct:nids_prm
+notify	src/tcp.c	/^notify(struct tcp_stream * a_tcp, struct half_stream * rcv)$/;"	f	file:
+nrnochksum	src/checksum.c	/^static int nrnochksum=0;$/;"	v	file:
+numpack	src/ip_fragment.c	/^static int numpack = 0;$/;"	v	file:
+offset	src/ip_fragment.c	/^  int offset;			\/* offset of fragment in IP datagram    *\/$/;"	m	struct:ipfrag	file:
+offset	src/nids.h	/^  int offset;$/;"	m	struct:half_stream
+oldest_conn	src/tcp_conn_pool.c	/^    struct tcp_stream *oldest_conn;   \/\/ the oldest node in hash table$/;"	m	struct:conn_pool_t	typeref:struct:conn_pool_t::tcp_stream	file:
+one_loop_less	doc/API.html	/^<a name="one_loop_less"><\/a>$/;"	a
+one_loop_less	src/nids.h	/^  int one_loop_less;$/;"	m	struct:nids_prm
+open_live	src/libnids.c	/^static int open_live()$/;"	f	file:
+options	src/ip_options.c	/^struct options {$/;"	s	file:
+optlen	src/ip_options.c	/^  unsigned char optlen;$/;"	m	struct:options	file:
+overflow	src/ip_options.c	/^  __u8 flags:4, overflow:4;$/;"	m	struct:timestamp	file:
+overflow	src/ip_options.c	/^  __u8 overflow:4, flags:4;$/;"	m	struct:timestamp	file:
+packets	src/scan.h	/^  struct scan *packets;$/;"	m	struct:host	typeref:struct:host::scan
+panic	src/ip_fragment.c	/^panic(char *str)$/;"	f	file:
+pcap_desc	src/nids.h	/^  pcap_t *pcap_desc;$/;"	m	struct:nids_prm
+pcap_filter	src/nids.h	/^  char *pcap_filter;$/;"	m	struct:nids_prm
+pcap_timeout	src/nids.h	/^  int pcap_timeout;$/;"	m	struct:nids_prm
+perm	src/hash.c	/^static u_char perm[12];$/;"	v	file:
+pointer	src/ip_options.c	/^  char pointer;$/;"	m	struct:route	file:
+port	src/scan.h	/^  unsigned short port;$/;"	m	struct:scan
+prefix	src/Makefile	/^prefix		= \/usr\/local$/;"	m
+prev	src/ip_fragment.c	/^  struct hostfrags *prev;$/;"	m	struct:hostfrags	typeref:struct:hostfrags::hostfrags	file:
+prev	src/ip_fragment.c	/^  struct ipfrag *prev;$/;"	m	struct:ipfrag	typeref:struct:ipfrag::ipfrag	file:
+prev	src/ip_fragment.c	/^  struct ipq *prev;$/;"	m	struct:ipq	typeref:struct:ipq::ipq	file:
+prev	src/ip_fragment.c	/^  struct timer_list *prev;$/;"	m	struct:timer_list	typeref:struct:timer_list::timer_list	file:
+prev	src/nids.h	/^  struct tcp_timeout *prev;$/;"	m	struct:tcp_timeout	typeref:struct:tcp_timeout::tcp_timeout
+prev	src/scan.h	/^  struct host *prev;$/;"	m	struct:host	typeref:struct:host::host
+prev	src/tcp.h	/^  struct skbuff *prev;$/;"	m	struct:skbuff	typeref:struct:skbuff::skbuff
+prev_node	src/nids.h	/^  struct tcp_stream *prev_node;$/;"	m	struct:tcp_stream	typeref:struct:tcp_stream::tcp_stream
+prev_time	src/nids.h	/^  struct tcp_stream *prev_time;$/;"	m	struct:tcp_stream	typeref:struct:tcp_stream::tcp_stream
+proc_node	src/util.h	/^struct proc_node {$/;"	s
+process_icmp	src/tcp.c	/^process_icmp(u_char * data)$/;"	f
+process_tcp	src/tcp.c	/^process_tcp(u_char * data, int skblen)$/;"	f
+process_udp	src/libnids.c	/^static void process_udp(char *data)$/;"	f	file:
+promisc	src/nids.h	/^  int promisc;$/;"	m	struct:nids_prm
+protocol	src/checksum.c	/^  u_char protocol;    $/;"	m	struct:psuedo_hdr	file:
+protocol	src/ip_options.c	/^  __u8 protocol;$/;"	m	struct:iphdr	file:
+prototypes	configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
+prune_queue	src/tcp.c	/^prune_queue(struct half_stream * rcv, struct tcphdr * this_tcphdr)$/;"	f	file:
+psuedo_hdr	src/checksum.c	/^struct psuedo_hdr$/;"	s	file:
+ptr	src/ip_fragment.c	/^  unsigned char *ptr;		\/* pointer into real fragment data      *\/$/;"	m	struct:ipfrag	file:
+ptr	src/ip_options.c	/^  __u8 ptr;$/;"	m	struct:timestamp	file:
+purge_queue	src/tcp.c	/^static void purge_queue(struct half_stream * h)$/;"	f	file:
+queue_limit	src/nids.h	/^  int queue_limit;$/;"	m	struct:nids_prm
+raw_init	src/killtcp.c	/^int raw_init()$/;"	f
+read	src/nids.h	/^  int read;$/;"	m	struct:tcp_stream
+register_callback	src/util.c	/^register_callback(struct proc_node **procs, void (*x))$/;"	f
+remove_oldest_conn	src/tcp_conn_pool.c	/^static void remove_oldest_conn() {$/;"	f	file:
+reserved	src/nids.h	/^	u_int reserved;$/;"	m	struct:nids_chksum_ctl
+resume_second_half	src/nids.h	/^  char resume_second_half;$/;"	m	struct:half_stream
+ride_lurkers	src/tcp.c	/^ride_lurkers(struct tcp_stream * a_tcp, char mask)$/;"	f	file:
+rmem_alloc	src/nids.h	/^  int rmem_alloc;$/;"	m	struct:half_stream
+rmthis_host	src/ip_fragment.c	/^rmthis_host()$/;"	f	file:
+route	src/ip_options.c	/^  unsigned long route[MAX_ROUTE];$/;"	m	struct:route	file:
+route	src/ip_options.c	/^struct route {$/;"	s	file:
+route_size	src/ip_options.c	/^  char route_size;$/;"	m	struct:route	file:
+rr	src/ip_options.c	/^  unsigned char rr;$/;"	m	struct:options	file:
+rr_needaddr	src/ip_options.c	/^       rr_needaddr:1,		\/* Need to record addr of outgoing dev	 *\/$/;"	m	struct:options	file:
+saddr	src/checksum.c	/^  u_int saddr;      $/;"	m	struct:psuedo_hdr	file:
+saddr	src/ip_options.c	/^  __u32 saddr;$/;"	m	struct:iphdr	file:
+saddr	src/nids.h	/^  u_int saddr;$/;"	m	struct:tuple4
+scan	src/scan.h	/^struct scan {$/;"	s
+scan_delay	src/nids.h	/^  int scan_delay;$/;"	m	struct:nids_prm
+scan_exit	src/scan.c	/^scan_exit(void)$/;"	f
+scan_hash	src/scan.c	/^scan_hash(int addr)$/;"	f	file:
+scan_init	src/scan.c	/^scan_init(void)$/;"	f
+scan_num_hosts	src/nids.h	/^  int scan_num_hosts;$/;"	m	struct:nids_prm
+scan_num_ports	src/nids.h	/^  int scan_num_ports;$/;"	m	struct:nids_prm
+seq	src/nids.h	/^  u_int seq;$/;"	m	struct:half_stream
+seq	src/tcp.h	/^  u_int seq;$/;"	m	struct:skbuff
+server	src/nids.h	/^  struct half_stream server;$/;"	m	struct:tcp_stream	typeref:struct:tcp_stream::half_stream
+set_all_promisc	src/allpromisc.c	/^int set_all_promisc()$/;"	f
+simple_chksum_ctl_example	samples/chksum_ctl.c	/^void simple_chksum_ctl_example()$/;"	f
+sk_buff	src/ip_fragment.c	/^struct sk_buff {$/;"	s	file:
+sk_buff_size	src/nids.h	/^  int sk_buff_size;$/;"	m	struct:nids_prm
+skb	src/ip_fragment.c	/^  struct sk_buff *skb;		\/* complete received fragment           *\/$/;"	m	struct:ipfrag	typeref:struct:ipfrag::sk_buff	file:
+skbuff	src/tcp.h	/^struct skbuff {$/;"	s
+sniff_callback	samples/sniff.c	/^sniff_callback (struct tcp_stream *a_tcp, void **this_time_not_needed)$/;"	f
+socket	configure	/^socket ();$/;"	f
+source	src/nids.h	/^  u_short source;$/;"	m	struct:tuple4
+srcdir	samples/Makefile	/^srcdir		= .$/;"	m
+srcdir	src/Makefile	/^srcdir		= .$/;"	m
+srr	src/ip_options.c	/^  unsigned char srr;$/;"	m	struct:options	file:
+srr_is_hit	src/ip_options.c	/^       srr_is_hit:1,		\/* Packet destination addr was our one	 *\/$/;"	m	struct:options	file:
+state	src/nids.h	/^  char state;$/;"	m	struct:half_stream
+supp	samples/overflows.c	/^struct supp$/;"	s	file:
+syslog	src/nids.h	/^  void (*syslog) ();$/;"	m	struct:nids_prm
+syslog_level	src/nids.h	/^  int syslog_level;$/;"	m	struct:nids_prm
+tcp_callback	doc/API.html	/^<strong><font color="#4169E1"><a name="tcp_callback"><\/a>void$/;"	a
+tcp_callback	samples/printall.c	/^tcp_callback (struct tcp_stream *a_tcp, void ** this_time_not_needed)$/;"	f
+tcp_check_timeouts	src/tcp.c	/^tcp_check_timeouts(struct timeval *now)$/;"	f
+tcp_exit	src/tcp.c	/^void tcp_exit(void)$/;"	f
+tcp_init	src/tcp.c	/^tcp_init(int size)$/;"	f
+tcp_procs	src/libnids.c	/^struct proc_node *tcp_procs;$/;"	v	typeref:struct:proc_node
+tcp_queue	src/tcp.c	/^tcp_queue(struct tcp_stream * a_tcp, struct tcphdr * this_tcphdr,$/;"	f	file:
+tcp_resume_procs	src/libnids.c	/^struct proc_node *tcp_resume_procs;$/;"	v	typeref:struct:proc_node
+tcp_resume_wscale	src/nids.h	/^  int tcp_resume_wscale;$/;"	m	struct:nids_prm
+tcp_stream	src/nids.h	/^struct tcp_stream$/;"	s
+tcp_tag	src/killtcp.c	/^static libnet_ptag_t tcp_tag = LIBNET_PTAG_INITIALIZER,$/;"	v	file:
+tcp_timeout	src/nids.h	/^struct tcp_timeout$/;"	s
+tcp_workarounds	src/nids.h	/^  int tcp_workarounds;$/;"	m	struct:nids_prm
+test_malloc	src/util.c	/^test_malloc(int x)$/;"	f
+this_host	src/ip_fragment.c	/^static struct hostfrags *this_host;$/;"	v	typeref:struct:hostfrags	file:
+time0	src/ip_fragment.c	/^static unsigned int time0;$/;"	v	file:
+time0	src/scan.c	/^static int time0;$/;"	v	file:
+timenow	src/ip_fragment.c	/^static int timenow;$/;"	v	file:
+timenow	src/scan.c	/^static int timenow;$/;"	v	file:
+timeout	src/nids.h	/^  struct timeval timeout;$/;"	m	struct:tcp_timeout	typeref:struct:tcp_timeout::timeval
+timer	src/ip_fragment.c	/^  struct timer_list timer;	\/* when will this queue expire?         *\/$/;"	m	struct:ipq	typeref:struct:ipq::timer_list	file:
+timer_head	src/ip_fragment.c	/^static struct timer_list *timer_head = 0, *timer_tail = 0;$/;"	v	typeref:struct:timer_list	file:
+timer_list	src/ip_fragment.c	/^struct timer_list {$/;"	s	file:
+timer_tail	src/ip_fragment.c	/^static struct timer_list *timer_head = 0, *timer_tail = 0;$/;"	v	typeref:struct:	file:
+timestamp	src/ip_options.c	/^struct timestamp {$/;"	s	file:
+tos	src/ip_options.c	/^  __u8 tos;$/;"	m	struct:iphdr	file:
+tot_len	src/ip_options.c	/^  __u16 tot_len;$/;"	m	struct:iphdr	file:
+truesize	src/ip_fragment.c	/^  int truesize;$/;"	m	struct:sk_buff	file:
+truesize	src/tcp.h	/^  u_int truesize;$/;"	m	struct:skbuff
+ts	src/ip_options.c	/^  unsigned char ts;$/;"	m	struct:options	file:
+ts_needaddr	src/ip_options.c	/^       ts_needaddr:1;		\/* Need to record addr of outgoing dev  *\/$/;"	m	struct:options	file:
+ts_needtime	src/ip_options.c	/^       ts_needtime:1,		\/* Need to record timestamp		 *\/$/;"	m	struct:options	file:
+ts_on	src/nids.h	/^  u_char ts_on;$/;"	m	struct:half_stream
+ttl	src/ip_options.c	/^  __u8 ttl;$/;"	m	struct:iphdr	file:
+tuple4	src/nids.h	/^struct tuple4$/;"	s
+udp_procs	src/libnids.c	/^static struct proc_node *udp_procs;$/;"	v	typeref:struct:proc_node	file:
+ugly_iphdr	src/tcp.c	/^static struct ip *ugly_iphdr;$/;"	v	typeref:struct:ip	file:
+unregister_callback	src/util.c	/^unregister_callback(struct proc_node **procs, void (*x))$/;"	f
+urg	src/tcp.h	/^  char urg;$/;"	m	struct:skbuff
+urg_count	src/nids.h	/^  int urg_count;$/;"	m	struct:half_stream
+urg_ptr	src/nids.h	/^  u_int urg_ptr;$/;"	m	struct:half_stream
+urg_ptr	src/tcp.h	/^  u_int urg_ptr;$/;"	m	struct:skbuff
+urg_seen	src/nids.h	/^  u_char urg_seen;$/;"	m	struct:half_stream
+urgdata	src/nids.h	/^  u_char urgdata;$/;"	m	struct:half_stream
+user	src/nids.h	/^  void *user;$/;"	m	struct:tcp_stream
+version	src/ip_options.c	/^  __u8 version:4, ihl:4;$/;"	m	struct:iphdr	file:
+whatto	src/util.h	/^  char whatto;$/;"	m	struct:lurker_node
+window	src/nids.h	/^  u_short window;$/;"	m	struct:half_stream
+wscale	src/nids.h	/^  u_int wscale;$/;"	m	struct:half_stream
+wscale_on	src/nids.h	/^  u_char wscale_on;$/;"	m	struct:half_stream
+xor	src/hash.c	/^static u_char xor[12];$/;"	v	file:
+zero	src/checksum.c	/^  u_char zero;        $/;"	m	struct:psuedo_hdr	file:

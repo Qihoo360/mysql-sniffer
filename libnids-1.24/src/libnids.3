@@ -1,0 +1,436 @@
+.\" libnids manpage by Dug Song <dugsong@monkey.org>
+.\" tmac.an sux, tmac.doc rules
+.TH LIBNIDS 3
+.SH NAME
+libnids \- network intrusion detection system E-box library
+.SH SYNOPSIS
+.nf
+#include <nids.h>
+
+extern struct nids_prm \fInids_params\fR;
+extern char \fInids_errbuf\fR[];
+
+int
+\fBnids_init\fR(void);
+
+void
+\fBnids_register_ip_frag\fR(void (*ip_frag_func)(struct ip *pkt, int len));
+
+void
+\fBnids_unregister_ip_frag\fR(void (*ip_frag_func)(struct ip *pkt, int len));
+
+void
+\fBnids_register_ip\fR(void (*ip_func)(struct ip *pkt, int len));
+
+void
+\fBnids_unregister_ip\fR(void (*ip_func)(struct ip *pkt, int len));
+
+void
+\fBnids_register_udp\fR(void (*udp_func)(struct tuple4 *addr, u_char *data, int len, struct ip *pkt));
+
+void
+\fBnids_unregister_udp\fR(void (*udp_func)(struct tuple4 *addr, u_char *data, int len, struct ip *pkt));
+
+void
+\fBnids_register_tcp\fR(void (*tcp_func)(struct tcp_stream *ts, void **param));
+
+void
+\fBnids_unregister_tcp\fR(void (*tcp_func)(struct tcp_stream *ts, void **param));
+
+void
+\fBnids_killtcp\fR(struct tcp_stream *ts);
+
+void
+\fBnids_discard\fR(struct tcp_stream *ts, int numbytes);
+
+void
+\fBnids_run\fR(void);
+
+int
+\fBnids_dispatch\fR(int cnt);
+
+int
+\fBnids_next\fR(void);
+
+int
+\fBnids_getfd\fR(void);
+
+int
+\fBnids_register_chksum_ctl\fR(struct nids_chksum_ctl *, int);
+
+void
+\fBnids_pcap_handler\fR(u_char *par, struct pcap_pkthdr *hdr, u_char *data);
+
+struct tcp_stream *
+\fBnids_find_tcp_stream\fR(struct tuple4 *addr);
+
+.fi
+.SH DESCRIPTION
+.B libnids
+provides the functionality of a network intrusion detection system
+(NIDS) E-box component. It currently performs:
+.LP
+.nf
+	1. IP defragmentation
+	2. TCP stream reassembly
+	3. TCP port scan detection
+.fi
+.PP
+.B libnids
+performs TCP/IP reassembly in exactly the same way as Linux
+2.0.36 kernels, and correctly handles all of the attacks implemented
+in fragrouter(8) (plus many other attacks as well).
+.SH ROUTINES
+.PP
+.BR nids_init ()
+initializes the application for sniffing, based on the values set in the
+global variable \fInids_params\fR, declared as follows:
+.LP
+.nf
+struct nids_prm {
+	int	n_tcp_streams;
+	int	n_hosts;
+	char	*device;
+	char	*filename;
+	int	sk_buff_size;
+	int	dev_addon;
+	void	(*syslog)(int type, int err, struct ip *iph, void *data);
+	int	syslog_level;
+	int	scan_num_hosts;
+	int	scan_num_ports;
+	int	scan_delay;
+	void	(*no_mem)(void);
+	int	(*ip_filter)(struct ip *iph);
+	char	*pcap_filter;
+	int	promisc;
+	int	one_loop_less;
+	int	pcap_timeout;
+	int	multiproc;
+	int	queue_limit;
+	int	tcp_workarounds;
+	pcap_t	*pcap_desc;
+} nids_params;
+.fi
+.PP
+The members of this structure are:
+.TP
+.I n_tcp_streams
+Size of the hash table used for storing TCP connection information (
+a maximum of 3/4 * \fIn_tcp_streams\fR TCP connections will be
+followed simultaneously). Default value: 1024
+.TP
+.I n_hosts
+Size of the hash table used for storing IP defragmentation
+information. Default value: 256
+.TP
+.I filename
+It this variable is set, libnids will call pcap_open_offline with this
+variable as the argument (instead of pcap_open_live()). Default value: NULL
+.TP
+.I device
+Interface to monitor. Default value: NULL (in which case an
+appropriate device is determined automatically). If this variable is assigned 
+value \fBall\fR, libnids will attempt to capture packets on all interfaces 
+(which works on Linux only)
+.TP
+.I sk_buff_size
+Size of \fIstruct sk_buff\fR (used for queuing packets), which should
+be set to match the value on the hosts being monitored. Default value: 168
+.TP
+.I dev_addon
+Number of bytes in \fIstruct sk_buff\fR reserved for link-layer
+information. Default value: -1 (in which case an appropriate offset if
+determined automatically based on link-layer type)
+.TP
+.I syslog
+Syslog callback function, used to report unusual conditions, such as
+port scan attempts, invalid TCP header flags, etc. Default value:
+\fInids_syslog\fR (which logs messages via syslog(3) without regard
+for message rate per second or free disk space)
+.TP
+.I syslog_level
+Log level used by \fInids_syslog\fR for reporting events via
+syslog(3). Default value: LOG_ALERT
+.TP
+.I scan_num_hosts
+Size of hash table used for storing portscan information (the maximum
+number portscans that will be detected simultaneously). If set to 0,
+portscan detection will be disabled. Default value: 256
+.TP
+.I scan_num_ports
+Minimum number of ports that must be scanned from the same source
+host before it is identifed as a portscan. Default value: 10
+.TP
+.I scan_delay
+Maximum delay (in milliseconds) between connections to different
+ports for them to be identified as part of a portscan. Default value:
+3000
+.TP
+.I no_mem
+Out-of-memory callback function, used to terminate the calling process
+gracefully.
+.TP
+.I ip_filter
+IP filtering callback function, used to selectively discard IP
+packets, inspected after reassembly. If the function returns a
+non-zero value, the packet is processed; otherwise, it is
+discarded. Default value: \fInids_ip_filter\fR (which always returns
+1)
+.TP
+.I pcap_filter
+pcap(3) filter string applied to the link-layer (raw, unassembled)
+packets. \fBNote\fR: filters like ``tcp dst port 23'' will NOT
+correctly handle appropriately fragmented traffic, e.g. 8-byte IP
+fragments; one should add "or (ip[6:2] & 0x1fff != 0)" at the end of the
+filter to process reassembled packets. Default value: NULL
+.TP
+.I promisc
+If non-zero, libnids will set the interface(s) it listens on to
+promiscuous mode. Default value: 1
+.TP
+.I one_loop_less
+Disabled by default; see comments in API.html file
+.TP
+.I pcap_timeout
+Sets the pcap read timeout, which may or may not be supported by your
+platform.  Default value: 1024.
+.TP
+.I multiproc
+If nonzero, creates a separate thread for packets processing. See API.html.
+Default value: 0.
+.TP
+.I queue_limit
+If multiproc is nonzero, this is the maximum number of packets queued in the
+thread which reads packets from libpcap. Default value: 20000
+.TP
+.I tcp_workarounds
+Enables extra checks for faulty implementations of TCP such as the ones
+which allow connections to be closed despite the fact that there should be
+retransmissions for lost packets first (as stated by RFC 793, section 3.5).
+If non-zero, libnids will set the NIDS_TIMED_OUT state for savagely closed
+connections. Default value: 0
+.TP
+.I pcap_desc
+It this variable is set, libnids will call neither pcap_open_live nor
+pcap_open_offline, but will use a pre-opened PCAP descriptor; use this
+with nids_pcap_handler() in order to interactively feed packets to
+libnids. Default value: NULL
+.PP
+Returns 1 on success, 0 on failure (in which case \fBnids_errbuf\fR
+contains an appropriate error message).
+.PP
+.BR nids_register_ip_frag ()
+registers a user-defined callback function to process all incoming IP
+packets (including IP fragments, packets with invalid checksums, etc.).
+.PP
+.BR nids_unregister_ip_frag ()
+unregisters a user-defined callback function to process all incoming IP
+packets. 
+.PP
+.BR nids_register_ip ()
+registers a user-defined callback function to process IP packets
+validated and reassembled by \fBlibnids\fR.
+.PP
+.BR nids_unregister_ip ()
+unregisters a user-defined callback function to process IP packets.
+.PP
+.BR nids_register_udp ()
+registers a user-defined callback function to process UDP packets
+validated and reassembled by \fBlibnids\fR.
+.PP
+.BR nids_unregister_udp ()
+unregisters a user-defined callback function to process UDP packets.
+.PP
+.BR nids_register_tcp ()
+registers a user-defined callback function to process TCP streams
+validated and reassembled by \fBlibnids\fR. The \fItcp_stream\fR
+structure is defined as follows:
+.LP
+.nf
+struct tcp_stream {
+	struct tuple4 {
+		u_short source;
+		u_short	dest;
+		u_int	saddr;
+		u_int	daddr;
+	} addr;
+	char			nids_state;
+	struct half_stream {
+		char	state;
+		char	collect;
+		char	collect_urg;
+		char	*data;
+		u_char	urgdata;
+		int	count;
+		int	offset;
+		int	count_new;
+		char	count_new_urg;
+		...
+	} client;
+	struct half_stream	server;
+	...
+	void			*user;
+};
+.fi
+.PP
+The members of the \fItuple4\fR structure identify a unique TCP
+connection:
+.TP
+\fIsource\fR, \fIdest\fR
+Client and server port numbers
+.TP
+\fIsaddr\fR, \fIdaddr\fR
+Client and server IP addresses
+.PP
+The members of the \fIhalf_stream\fR structure describe each half of a
+TCP connection (client and server):
+.TP
+.I state
+Socket state (e.g. TCP_ESTABLISHED).
+.TP
+.I collect
+A boolean which specifies whether to collect data for this half of the
+connection in the \fIdata\fR buffer.
+.TP
+.I collect_urg
+A boolean which specifies whether to collect urgent data pointed to by
+the TCP urgent pointer for this half of the connection in the
+\fIurgdata\fR buffer.
+.TP
+.I data
+Buffer for normal data.
+.TP
+.I urgdata
+One-byte buffer for urgent data.
+.TP
+.I count
+The number of bytes appended to \fIdata\fR since the creation of the
+connection.
+.TP
+.I offset
+The current offset from the first byte stored in the \fIdata\fR
+buffer, identifying the start of newly received data.
+.TP
+.I count_new
+The number of bytes appended to \fIdata\fR since the last invocation
+of the TCP callback function (if 0, no new data arrived).
+.TP
+.I count_new_urg
+The number of bytes appended to \fIurgdata\fR since the last
+invocation of the TCP callback function (if 0, no new urgent data
+arrived).
+.PP
+The value of the \fInids_state\fR field provides information about the
+state of the TCP connection, to be used by the TCP callback function:
+.TP
+NIDS_JUST_EST
+Connection just established. Connection parameters in the \fIaddr\fR
+structure are available for inspection. If the connection is
+interesting, the TCP callback function may specify which data it
+wishes to receive in the future by setting non-zero values for the
+\fIcollect\fR or \fIcollect_urg\fR variables in the appropriate
+\fIclient\fR or \fIserver\fR half_stream structure members.
+.TP
+NIDS_DATA
+New data has arrived on a connection. The \fIhalf_stream\fR structures
+contain buffers of data.
+.TP
+NIDS_CLOSE, NIDS_RESET, NIDS_TIMED_OUT
+Connection has closed. The TCP callback function should free any
+resources it may have allocated for this connection.
+.PP
+The \fIparam\fR pointer passed by libnids as argument to the TCP callback
+function may be set to save a pointer to user-defined
+connection-specific data to pass to subsequent invocations of the TCP
+callback function (ex. the current working directory for an FTP
+control connection, etc.).
+.PP
+The \fIuser\fR pointer in the tcp_stream structure has the same purpose
+except it is global to the stream, whereas the \fIparam\fR pointer is
+different from one callback function to the other even though they were
+called for the same stream.
+.PP
+.BR nids_unregister_tcp ()
+unregisters a user-defined callback function to process TCP streams.
+.PP
+.BR nids_killtcp ()
+tears down the specified TCP connection with symmetric RST packets
+between client and server.
+.PP
+.BR nids_discard ()
+may be called from the TCP callback function to specify the number of
+bytes to discard from the beginning of the \fIdata\fR buffer (updating
+the \fIoffset\fR value accordingly) after the TCP callback function
+exits. Otherwise, the new data (totalling \fIcount_new\fR bytes) will
+be discarded by default.
+.PP
+.BR nids_run ()
+starts the packet-driven application, reading packets in an endless
+loop, and invoking registered callback functions to handle new data as
+it arrives. This function does not return.
+.PP
+.BR nids_dispatch ()
+attempts to process \fBcnt\fR packets before returning, with a cnt of -1
+understood as all packets available in one pcap buffer, or all packets in
+a file when reading offline.  On success, returns the count of packets
+processed, which may be zero upon EOF (offline read) or upon hitting
+\fIpcap_timeout\fR (if supported by your platform).  On failure, returns
+-1, putting an appropriate error message in \fBnids_errbuf\fR.
+.PP
+.BR nids_next ()
+process the next available packet before returning.  Returns 1 on success,
+0 if no packet was processed, setting \fBnids_effbuf\fR appropriately if
+an error prevented packet processing.
+.PP
+.BR nids_getfd ()
+may be used by an application sleeping in select(2) to snoop for a
+socket file descriptor present in the read fd_set. Returns the file
+descriptor on success, -1 on failure (in which case \fBnids_errbuf\fR
+contains an appropriate error message).
+.PP
+.BR nids_register_chksum_ctl ()
+takes as arguments an array of \fIstruct nids_chksum_ctl\fR elements and
+the number of elements in the array.  A \fInids_chksum_ctl\fR element is
+defined as follows:
+.LP
+.nf
+struct nids_chksum_ctl {
+	u_int netaddr;
+	u_int mask;
+	u_int action;
+	/* private members */
+};
+.fi
+.PP
+Internal checksumming functions will first check elements of this array one
+by one, and if the source ip SRCIP of the current packet satisfies condition
+                                                       
+       (SRCIP&chksum_ctl_array[i].mask)==chksum_ctl_array[i].netaddr
+                                                       
+then if  the \fIaction\fR field is \fBNIDS_DO_CHKSUM\fR, the packet will be
+checksummed; if the \fIaction\fR field is \fBNIDS_DONT_CHKSUM\fR, the packet
+will not be checksummed.  If the packet matches none of the array elements,
+the default action is to perform checksumming.
+.PP
+.BR nids_pcap_handler ()
+may be used by an application already running a capture with libpcap, in order
+to pass frames to libnids interactively (frame per frame) instead of having
+libnids itself do the capture.
+.PP
+.BR nids_find_tcp_stream ()
+returns a pointer to the tcp_stream structure corresponding to the tuple
+passed as argument if libnids knows about this TCP connection already,
+otherwise it returns NULL.
+.PP
+.BR nids_free_tcp_stream ()
+removes the given tcp_stream from the list of streams tracked by libnids.
+Warning: its usage can result in crashes! See comments in the API.html file.
+
+.SH SEE ALSO
+pcap(3), libnet(3), fragrouter(8)
+.SH AUTHOR
+Rafal Wojtczuk <nergal@icm.edu.pl>
+.PP
+Manpage by Dug Song <dugsong@monkey.org>, minor updates by Michael Pomraning
+<mjp@pilcrow.madison.wi.us>
+

@@ -1,0 +1,60 @@
+
+                             ====================
+                                 libnids-1.24
+                             ====================
+
+1. Building
+-----------
+
+	Libnids uses libpcap (can be retrieved from 
+http://www.tcpdump.org/release/) and libnet (available at
+http://www.packetfactory.net/libnet). All credits to autors of these libs.
+	As already mentioned in README, currently libnids will compile on
+Linux, any *BSD and Solaris. WIN32 port is mantained separately.
+	In order to build libnids, issue "./configure;make" command in top 
+directory. Library files libnids.so and libnids.a should be created in "src" 
+directory. "make install" will install library and header files. You may
+wish to consult "./configure --help" output for available options.
+
+2. Limitations
+--------------
+
+	In their paper, T. Ptacek and T. Newsham observed that various 
+operating systems implement IP stack differently and can interpret
+differently the same packet. It means that having seen a IP packet, NIDS has 
+to interpret it with regard to receiving operating system type. A perfect NIDS
+E-component should possess knowledge on all operating systems network 
+implementation oddities. I don't know any actual NIDS implementation that 
+takes the previous into consideration.
+	Libnids 1.0 was meant to reliably emulate behavior of Linux 2.0.36 
+kernel. Thanks to libnids testing, some bugs in 2.0.36 networking code were 
+found. One of them enabled an attacker to perform blind TCP spoofing against 
+2.0.x kernels, including 2.0.36 and 2.0.37 (that is NOT the vulnerability 
+discovered by NAI; see my posting to Bugtrag from beginning of August 99). Info
+on spotted bugs was submitted to Linux kernel mantainers on 25th May 99 (before
+the release of 2.0.37), but none of them got fixed. File PATCH contains diffs 
+against 2.0.37, which stop blind spoofing attack and one of data insertion 
+attacks (now its equivalent is incorporated into Solar Designer's
+secure-linux-0.9 patch). Currently, libnids predicts 2.0.37 behavior as 
+accurately as possible (with some unevitable exceptions - see my postings to 
+Bugtraq from beginning of August 99). In extreme conditions, libnids can 
+incorrectly emulate actions of other operating systems. However, libnids 
+should cope with simple attacks (like these implemented in fragrouter 1.3) 
+targetted at any OS type.
+	All NIDS are vulnerable to DOS attacks. Libnids uses efficient data
+structures (i.e. hash tables) to minimize risk of CPU saturation. However, all
+NIDS (including ones based on libnids) has to define some resources (most
+notably, memory) limits. A determined attacker can attempt to make libnids use 
+up all of its memory, which can result in dropping some data. Libnids will 
+report such condition via its D-component interface.
+
+3. Why does libnids emulate 2.0.x kernel instead of 2.2.x ?
+-------------------------------------------------------
+
+	First of all, libnids development started when 2.0.36 was the current 
+stable kernel. Moreover, some people still prefer to use 2.0.x kernels, one of 
+the reasons being the fact that there is still no Solar Designer 
+non-executable stack patch for 2.2.x (not released oficially until July 99). 
+Finally, 2.2.x kernels are highly configurable during run-time (for instance 
+it's possible to change via proc interface the amount of kernel memory devoted 
+for IP fragments queuing), which generally makes them unpredictable. 

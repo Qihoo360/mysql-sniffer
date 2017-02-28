@@ -1,0 +1,396 @@
+.\" libnids manpage by Dug Song <dugsong@monkey.org>
+.Dd Dec 21, 1999
+.Dt PCAP 3
+.Os
+.Sh NAME
+.Nm libnids
+.Nd network intrusion detection system E-box library
+.Sh SYNOPSIS
+.Fd #include <nids.h>
+.Pp
+.Dv extern struct nids_prm nids_params;
+.Lp
+.Dv extern char *nids_warnings[];
+.Lp
+.Dv extern char nids_errbuf[];
+.Ft int
+.Fn nids_init "void"
+.Ft void
+.Fn nids_register_ip_frag "void (*ip_frag_func)(struct ip *pkt)"
+.Ft void
+.Fn nids_register_ip "void (*ip_func)(struct ip *pkt)"
+.Ft void
+.Fn nids_register_udp "void (*udp_func)(struct tuple4 *addr, u_char *data, int len, struct ip *pkt))"
+.Ft void
+.Fn nids_register_tcp "void (*tcp_func)(struct tcp_stream *ts, void **param)"
+.Ft void
+.Fn nids_killtcp "struct tcp_stream *ts"
+.Ft void
+.Fn nids_discard "struct tcp_stream *ts, int numbytes"
+.Ft void
+.Fn nids_run "void"
+.Ft int
+.Fn nids_dispatch "int"
+.Ft int
+.Fn nids_next "void"
+.Ft int
+.Fn nids_getfd "void"
+.Ft void
+.Fn nids_register_chksum_ctl "struct nids_chksum_ctl *, int"
+
+
+.Sh DESCRIPTION
+.Nm
+provides the functionality of a network intrusion detection system
+(NIDS) E-box component. It currently performs
+.Lp
+.Bl -enum -offset indent -compact
+.It
+IP defragmentation
+.It
+TCP stream reassembly
+.It
+TCP port scan detection
+.El
+.Lp
+.Nm
+performs TCP/IP reassembly in exactly the same way as Linux
+2.0.36 kernels, and correctly handles all of the attacks implemented
+in
+.Xr fragrouter 8
+(plus many other attacks as well).
+.Sh ROUTINES
+
+.Fn nids_init
+initializes the application for sniffing, based on the values set in the
+global variable
+.Va nids_params ,
+declared as follows:
+.Bd -literal
+struct nids_prm {
+	int	n_tcp_streams;
+	int	n_hosts;
+	char	*device;
+	int	sk_buff_size;
+	int	dev_addon;
+	void	(*syslog)(int type, int err, struct ip *iph, void *data);
+	int	syslog_level;
+	int	scan_num_hosts;
+	int	scan_num_ports;
+	int	scan_delay;
+	void	(*no_mem)(void);
+	int	(*ip_filter)(struct ip *iph);
+	char	*pcap_filter;
+	int pcap_timeout;
+} nids_params;
+.Ed
+.Pp
+The members of this structure are:
+.Bl -tag -width scan_num_hosts
+.It Fa n_tcp_streams
+Size of the hash table used for storing TCP connection information (
+a maximum of 3/4 *
+.Fa n_tcp_streams
+TCP connections will be followed simultaneously). Default value: 1024
+.It Fa n_hosts
+Size of the hash table used for storing IP defragmentation
+information. Default value: 256
+.It Fa filename
+It this variable is set, libnids will call pcap_open_offline with this
+variable as the argument (instead of pcap_open_live()). Default value: NULL
+.It Fa device
+Interface to monitor. Default value:
+.Dv NULL
+(in which case an appropriate device is determined automatically). If  this
+variable is assigned value 
+.Nm all, libnids will attempt to capture packets on all interfaces (which 
+works on Linux only)
+.It Fa sk_buff_size
+Size of 
+.Fa struct sk_buff
+(used for queuing packets), which should be set to match the value on
+the hosts being monitored. Default value: 168
+.It Fa dev_addon
+Number of bytes in
+.Fa struct sk_buff
+reserved for link-layer information. Default value: -1 (in which case
+an appropriate offset if determined automatically based on link-layer
+type)
+.It Fa syslog
+Syslog callback function, used to report unusual conditions, such as
+port scan attempts, invalid TCP header flags, etc. Default value:
+.Fa nids_syslog 
+(which logs messages via
+.Xr syslog 3
+without regard for message rate per second or free disk space)
+.It Fa syslog_level
+Log level used by
+.Fa nids_syslog
+for reporting events via
+.Xr syslog 3 .
+Default value:
+.Dv LOG_ALERT
+.It Fa scan_num_hosts
+Size of hash table used for storing portscan information (the maximum
+number portscans that will be detected simultaneously). If set to 0,
+portscan detection will be disabled. Default value: 256
+.It Fa scan_num_ports
+Minimum number of ports that must be scanned from the same source
+host before it is identifed as a portscan. Default value: 10
+.It Fa scan_delay
+Maximum delay (in milliseconds) between connections to different
+ports for them to be identified as part of a portscan. Default value:
+3000
+.It Fa no_mem
+Out-of-memory callback function, used to terminate the calling process
+gracefully.
+.It Fa ip_filter
+IP filtering callback function, used to selectively discard
+IP packets, inspected after reassembly. If 
+the function returns a non-zero value, the packet is processed;
+otherwise, it is discarded. Default value:
+.Fn nids_ip_filter 
+(which always returns 1)
+.It Fa pcap_filter
+.Xr pcap 3
+filter string applied to the link-layer (raw, unassembled) packets.
+.Sy Note:
+filters like ``tcp dst port 23'' will NOT correctly handle
+appropriately fragmented traffic, e.g. 8-byte IP fragments. One should add
+"or (ip[6:2] & 0x1fff != 0)" at the end of the filter to process reassembled 
+packets. Default value:
+.Dv NULL
+.lt Fa promisc
+If non-zero, libnids will set the interface(s) it listens on to 
+promiscuous mode. Default value: 1
+.It Fa one_loop_less
+Disabled by default see comments in API.html file
+.It Fa pcap_timeout
+Sets the pcap read timeout, which may or may not be supported by your
+platform.  Default value: 1024.
+.El
+.Pp
+Returns 1 on success, 0 on failure (in which case
+.Va nids_errbuf
+contains an appropriate error message).
+.Pp
+.Fn nids_register_ip_frag
+registers a user-defined callback function to process all incoming IP
+packets (including IP fragments, packets with invalid checksums, etc.).
+.Pp
+.Fn nids_register_ip
+registers a user-defined callback function to process IP packets
+validated and reassembled by
+.Nm libnids .
+.Pp
+.Fn nids_register_udp
+registers a user-defined callback function to process UDP packets
+validated and reassembled by
+.Nm libnids .
+.Pp
+.Fn nids_register_tcp
+registers a user-defined callback function to process TCP streams
+validated and reassembled by
+.Nm libnids .
+The 
+.Va tcp_stream
+structure is defined as follows:
+.Bd -literal
+struct tcp_stream {
+	struct tuple4 {
+		u_short source;
+		u_short	dest;
+		u_int	saddr;
+		u_int	daddr;
+	} addr;
+	char			nids_state;
+	struct half_stream {
+		char	state;
+		char	collect;
+		char	collect_urg;
+		char	*data;
+		u_char	urgdata;
+		int	count;
+		int	offset;
+		int	count_new;
+		char	count_new_urg;
+		...
+	} client;
+	struct half_stream	server;
+	...
+};
+.Ed
+.Pp
+The members of the
+.Va tuple4
+structure identify a unique TCP connection:
+.Bl -tag -width source_,_dest
+.It Fa source , dest
+Client and server port numbers
+.It Fa saddr , daddr
+Client and server IP addresses
+.El
+.Pp
+The members of the
+.Va half_stream
+structure describe each half of a TCP connection (client and server):
+.Bl -tag -width count_new_urg
+.It Fa state
+Socket state (e.g.
+.Dv TCP_ESTABLISHED
+).
+.It Fa collect
+A boolean which specifies whether to collect data for this half of the
+connection in the
+.Va data
+buffer.
+.It Fa collect_urg
+A boolean which specifies whether to collect urgent data pointed to by
+the TCP urgent pointer for this half of the connection in the
+.Va urgdata
+buffer.
+.It Fa data
+Buffer for normal data.
+.It Fa urgdata
+One-byte buffer for urgent data.
+.It Fa count
+The number of bytes appended to
+.Va data
+since the creation of the connection.
+.It Fa offset
+The current offset from the first byte stored in the
+.Va data
+buffer, identifying the start of newly received data.
+.It Fa count_new
+The number of bytes appended to
+.Va data
+since the last invocation of the TCP callback function (if 0, no new
+data arrived).
+.It Fa count_new_urg
+The number of bytes appended to
+.Va urgdata
+since the last invocation of the TCP callback function (if 0, no new
+urgent data arrived).
+.El
+.Pp
+The
+.Va nids_state
+field provides information about the state of the TCP connection, to
+be used by the TCP callback function:
+.Bl -tag -width NIDS_TIMED_OUT
+.It Dv NIDS_JUST_EST
+Connection just established. Connection parameters in the
+.Va addr
+structure are available for inspection. If the connection is
+interesting, the TCP callback function may specify which data it
+wishes to receive in the future by setting non-zero values for the
+.Va collect
+or
+.Va collect_urg
+variables in the appropriate 
+.Va client
+or
+.Va server half_stream
+structure members.
+.It Dv NIDS_DATA
+New data has arrived on a connection. The
+.Va half_stream
+structures contain buffers of data.
+.It Dv NIDS_CLOSE , NIDS_RESET , NIDS_TIMED_OUT
+Connection has closed. The TCP callback function should free any
+resources it may have allocated for this connection.
+.El
+.Pp
+The
+.Va param
+pointer may be set to save a pointer to user-defined
+connection-specific data to pass to subsequent invocations of the TCP
+callback function (ex. the current working directory for an FTP
+control connection, etc.).
+.Pp
+.Fn nids_killtcp
+tears down the specified TCP connection with symmetric
+.Dv RST
+packets between client and server.
+.Pp
+.Fn nids_discard
+may be called from the TCP callback function to specify the number of
+bytes to discard from the beginning of the
+.Va data
+buffer (updating the
+.Va offset
+value accordingly) after the TCP callback function exists. Otherwise,
+the new data (totalling 
+.Va count_new
+bytes) will be discarded by default.
+.Pp
+.Fn nids_run
+starts the packet-driven application, reading packets in an endless
+loop, and invoking registered callback functions to handle new data as
+it arrives. This function does not return.
+.Pp
+.Fn nids_dispatch
+attempts to process
+.Va cnt
+packets before returning, with a cnt of -1 understood as all packets
+available in one pcap buffer, or all packets in a file when reading
+offline.  On success, returns the count of packets processed, which may
+be zero upon EOF (offline read) or upon hitting
+.Va pcap_timeout
+(if supported by your platform).  On failure, returns -1, putting an
+appropriate error message in 
+.Va nids_errbuf .
+.Pp
+.Fn nids_next
+process the next available packet before returning.  Returns 1 on success,
+0 if no packet was processed, setting
+.Va nids_effbuf
+appropriately if an error prevented packet processing.
+.Pp
+.Fn nids_getfd
+may be used by an application sleeping in
+.Xr select 2
+to snoop for a socket file descriptor present in the read
+.Dv fd_set .
+Returns the file descriptor on success, -1 on failure (in which case
+.Va nids_errbuf
+contains an appropriate error message).
+.Pp
+.Fn nids_register_chksum_ctl
+takes as arguments an array of
+.Va struct nids_chksum_ctl
+elements and the number of elements in the array.  A
+.Va nids_chksum_ctl
+element is defined as follows:
+.Bd -literal
+struct nids_chksum_ctl {
+    u_int netaddr;
+    u_int mask;
+    u_int action;
+    /* private members */
+};
+.Ed 
+.Pp
+Internal checksumming functions will first check elements of this array one
+by one, and if the source ip SRCIP of the current packet satisfies condition
+   
+       (SRCIP&chksum_ctl_array[i].mask)==chksum_ctl_array[i].netaddr
+
+then if the
+.Va action
+field is NIDS_DO_CHKSUM, the packet will be checksummed; if the
+.Va action
+field is NIDS_DONT_CHKSUM, the packet will not be checksummed. If the packet
+matches none of the array elements, the default action is to perform
+checksumming.
+
+.Sh SEE ALSO
+.Xr pcap 3 ,
+.Xr libnet 3 ,
+.Xr fragrouter 8
+.Sh AUTHOR
+Rafal Wojtczuk <nergal@icm.edu.pl>
+.Pp
+Manpage by Dug Song <dugsong@monkey.org>, minor updates by Michael Pomraning
+<mjp@pilcrow.madison.wi.us>
+

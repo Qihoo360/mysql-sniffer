@@ -1,0 +1,157 @@
+v1.24 Mar 14 2010
+- fixed another remotely triggerable NULL dereference in ip_fragment.c
+- unofficial patch that enables tracking of already established TCP connections
+- missing reset of some tcp_* variables upon nids_exit
+- correct calculation of radiotap header
+- compilation warning fixes with newer gcc
+- use pcap_get_selectable_fd() instead of pcap_fileno()
+
+v1.23 Feb 23 2008
+- fixed remotely triggerable NULL dereference in ip_fragment.c
+- fix DLT_PRISM_HEADER linkoffset calculation
+- check for DATA_FRAME_IS_QOS in wireless frames
+- free queued tcp segments with too old seq
+
+v1.22 Jul 22 2007
+- in TCP stream, the byte with absolute offset 0 was treated as urgent data;
+fixed
+- DLT_IEEE802_11_RADIO handling
+- added a few missing checks for failed malloc
+ 
+v1.21 May 10 2006
+- more externals to access libnids' intrinsics from the outside
+- nids_unregister_*()
+- UDP checksumming fix (0 is not an error according to RFC768)
+- nids_params.tcp_workarounds
+- nids_params.multiproc and queue_limit: merged a patch which creates a 
+separate thread for packet capture; 
+- in killtcp.c, send two more RST packets (required because of MS05-019
+patch)
+- glibc 2.4 syslog.h disaster workaround
+
+v1.20 Feb 4 2005
+- added wscale option parsing; surprisingly, it seems to be in some use
+- added nids_dispatch(), for systems which do not ignore pcap timeout
+- ability to specify hosts/networks for which we do not check checksums
+
+v1.19 Aug 08 2004
+- fixed signed/unsigned comparisons; 1.18 could be possibly crashed in tcp
+  options parsing (though an unlikely to happen memory layout is required);
+  now the source is compiled with -W -Wall
+- export pcap header of the last received packet (to get timestamp etc)
+- export the timeout parameter to pcap_open_live in params
+- support DLT_PRISM_HEADER
+- support DLT_PPP_SERIAL
+- let through dataless acks
+- fixed raw_init() prototype
+- switched to use %edi instead of %ebx in csum_partial to make gcc-3.5 happy
+  when compiling with -fPIC; cleaned inline asm
+- fixed a bug when a queued FIN segment was not processed properly, which
+  resulted in not closing a stream
+
+v1.18 Oct 15 2003
+- reject tcp packets with old timestamp; needed to pass fragroute test;
+  well, linux 2.0.36 did not support this ;)
+- fixed memory corruption which could be caused by overlarge TCP packets
+- adjusted checksum.c to not use multiline literals (for gcc 3.3)
+- in configure.in, even if found libnet files, try compilation; there is
+  another library with the same name
+- fix a bug in "collect" field handling; if you did collect-- and then
+  collect++ (which is rare), you would get a single junk packet
+- correct handling of exec_prefix in configure.in
+- unlink config.status in "make distclean"
+- use pcap_hdr->caplen instead pcap_hdr->len; the only gain seems to be to
+  gracefully handle pcap files with too short snaplen
+- changed soname to libnids.so.1.x, as binary compatibility is not
+  guaranteed
+- switched to sourceforge as homepage
+
+v1.17 Dec 12 2002
+- fixed a stupid bug in TCP reassembly; having received a particular order
+  of TCP out of frame segments, libnids could lost track of the current 
+  seq, and miss the following data stream
+- DLT_FDDI
+- benign typo in hash.c
+- mentioned usefulness of two process buffering on a fast network
+
+v1.17rc1 Aug 30 2002
+- support for libnet-1.1 and --with-libnet=no
+- added support for libpcap save files
+- finally, DLT_LINUX_SLL is recognized
+- removed a horrible assumption on sizeof(pointer); it could result in
+  segfault in scan.c
+- --enable-shared
+- __i386 -> __i386__ || __i386 :(
+- support for 802.1Q VLAN 
+- support for wireless frames (DLT_IEEE802_11)
+- got rid of (obsolete) pcap_open_live_new
+- bail out if link type is unknown, instead of pretending it is ethernet
+- $(MAKE) -> $(MAKE) $(AM_MAKEFLAGS)
+- added a working link to Ptacek-Newsham paper
+- %hi -> %hu :)
+- align IP header if necessary (should not be)
+- improved libraries detection
+- mentioned usefulness od setsockopt(...SO_RCVBUF...) on a fast network
+
+v1.16 Nov 3 2000
+- nah, at least a release forced by a security bug. A typo in libnids.c
+could cause libnids to segfault when source routed frame has been received.
+
+v1.15 Oct 9 2000
+- token ring support
+- new configurable option (non-default): if a tcp callback hasn't processed 
+  all available data, it is called immediately again
+- fixed alignment in hash.c, which caused sigsegv on Sparc
+- another _obviously_ redundant include file added to configure test progs
+- html version of the API documentation
+
+v1.14 Jun 28 2000
+- fixed memory leak in tcp.c (queued tcp segments used to be not freed
+  after connection termination)
+- added support to capture packets on all interfaces, including loopback
+  (linux only, using new libpcap features - autoconf changed)
+- added nids_register_udp(); if anyone cares for UDP checksums...
+- stupid bug in nids_register_ip_frag() fixed
+- removed comments from asm code in checksum.c; Solaris compiler didn't
+  recognized them - sigh
+- signed/unsigned bug in scan.c fixed
+- tcp callback could be notified even if no nw data arrived - fixed
+- added ability to disable tcp processing
+- added ability to refrain from setting promisc flag
+- libc5 support
+- alpha platform support
+- now it's possible to do setuid(nobody) after nids_init() with no loss
+  of functionality (killtcp works)
+- removed pcap_lookupnet() call - one can capture packets from an interface
+  with no IP assigned
+- hash function in tcp.c with pseudorandom parameters
+- #define NIDS_MAJOR 1, #define NIDS_MINOR 14 in nids.h
+
+v1.13 Jan 18 2000
+- Changes by Dug Song:
+  - GNU autoconf support
+  - code cleanup and new libnids(3) manpage
+  - disable portscan detection if scan_num_hosts == 0
+  - new field in nids_params for pcap(3) support: pcap_filter
+  - subtle bugfix in ip_check_ext()
+  - Solaris support (endianness fixes, etc.)
+- another tiny check in tcp.c 
+
+v1.12 Sep 15 1999
+- processing of ICMP Destination Unreachable 
+- nids_next() and nids_getfd() functions added; new fields in nids_params:
+  no_mem, ip_filter
+- clean error reporting via nids_errbuf; used by nids_init(), nids_next(), 
+  nids_getfd()
+- some more samples
+
+v1.11 Aug 20 1999
+- some stupid bugs removed (hopefully no more segfaults)
+
+v1.1 Aug 10 1999
+- *BSD support added by Dug Song
+- some minor cleanups in libnids.c
+- changed the license to GPL
+
+v1.0 July 30 1999 
+- Initial public release

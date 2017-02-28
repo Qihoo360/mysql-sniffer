@@ -1,0 +1,316 @@
+
+Libnids author:
+
+    Nergal <nergal@7bulls.com>
+
+
+Corrections to make libnids build on *BSD; bugfixes, GNU autoconf support,
+libnids(3) manpage, alpha platform problems solved:
+
+    Dug Song <dugsong@anzen.com>
+
+
+The fix of the problem with gcc 2.95 and 2.0.x asm code; the ideas of
+nids_getfd(), nids_next():
+    
+    Adam Langley <aglangley@geocities.com>
+
+
+The idea of ip_filter function
+
+   Sebastian <scut@nb.in-berlin.de>
+
+
+WIN32 support
+
+  Michael Davis <Mike@eEye.com> 
+
+
+Memory leak in tcp.c reported
+
+  billzh <billzh@szonline.net>, Rob Willis <rob@e-critical.com>
+
+
+Possible improper behaviour of notify()
+
+  Rob Willis <rob@e-critical.com>
+
+
+Stupid bug found in nids_register_ip_frag()
+
+   Gabe Wachob <gwachob@wachob.net>, Solar Designer <solar@false.com>
+
+
+Patches to support libc5
+
+  Solar Designer <solar@false.com>, Denis Ducamp <Denis.Ducamp@hsc.fr>
+
+
+Requests for features, constructive critics
+
+  Solar Designer <solar@false.com>
+
+
+Support for token ring
+
+  Vacuum <vacuum@technotronic.com>
+
+
+Alignment bug in hash.c
+
+ Anders Thulin <ath@algonet.se>
+ Ken Mandelberg <km@mathcs.emory.edu>
+
+
+in.h missing in "configure" test programs. Damn, if a include file X needs 
+structures defined in Y, why doesn't X include Y ? Stupid Solaris.
+
+ Raymond Scott <rscott@directlink.net>
+
+
+dangerous typo found in libpcap.c, in code handling source routed frames 
+
+ Keiji Takeda <keiji@sfc.keio.ac.jp>
+
+
+support for wireless frames (DLT_IEEE802_11)
+
+ William McVey <wam@cisco.com>
+
+
+support for libpcap save files 
+
+ Scott Renfro <scott@renfro.org>
+actually, many people sent their save file patches; I picked Scott's one
+
+
+DLT_LINUX_SLL
+
+ Robin Redeker <elmex@x-paste.de>
+
+
+support for 802.1Q VLAN
+
+ Jason Ackley <jason@Ackley.NET>
+
+
+added AM_MAKEFLAGS
+
+ Brad <brad@comstyle.com>
+
+
+added a working link to Ptacek-Newsham paper
+
+ Nick Drage <nickd@metastasis.demon.co.uk>
+
+
+replaced %hi with %hu
+
+ Kazennov Vladimir <kvn@wplus.net>
+
+
+report on configure unable to find libraries
+
+ Eric Darchis <darchis@pobox.com>
+
+
+DLT_FDDI
+
+ jkrage@buser.net
+
+
+random() -> rand()
+
+ Davide Madrisan <davide.madrisan@atlavia.it> 
+
+
+provided pcap dump file triggering a bug in TCP reassembly
+
+ Yoav Weiss <sniffer@unpatched.net>
+
+
+reported a problem with fragroute "tcp_chaff paws",
+reported a problem with "collect" fields handling,
+exec_prefix patch,
+reported a problem with short snaplen pcapfiles
+
+ Russ Fink <Russ.Fink@umbc.edu>
+
+
+reported a problem with memory corruption
+
+ Robert Watson <rwatson@FreeBSD.org>
+
+
+reported a problem with multiline literals and gcc 3.3
+
+ many folks; the first report from Arkadiusz Patyk <areq(at)pld.org.pl>
+
+
+reported a problem with signed/unsigned in get_ts()
+
+ many folks; the first report from Russ Fink <Russ.Fink@umbc.edu>
+
+
+suggestion to export the pcap header of the last packet
+
+ Arthur Bergman <sky@nanisky.com>
+
+
+suggestion to make pcap_timeout parameter settable in params
+
+ Pedro Paulo Jr <ppj@netfilter.com.br>
+
+
+prism wireless cards support
+
+ snax <snax@shmoo.com>
+
+
+reported a problem which revealed that dataless acks are not let through
+
+ Russ Fink <Russ.Fink@umbc.edu>
+
+
+reported raw_init() breakage
+
+ Brian Wesley Dillard <bdillard@fas.harvard.edu>
+
+
+DLT_PPP_SERIAL
+
+ Jean-Edouard BABIN <Jeb@jeb.com.fr>
+
+
+Reported a problem with gcc 3.5 and csum_partial
+
+ Jon Oberheide <jon@focalhost.com>
+
+
+man page fixes
+
+ Solar Designer
+
+
+suggested inline asm fixes to reflect the usage of registers
+
+ Solar Designer
+
+
+nids_dispatch(), API/documentation improvements
+
+  Mike Pomraning <mjp@pilcrow.madison.wi.us>
+
+
+submission of pcap files containing tcp stream with wscale
+
+ Marc A. Lehmann <pcg@goof.com>
+ Robin Redeker <elmex@x-paste.de>
+
+
+manpage suggestions, valuable discussions
+
+ Marc A. Lehmann <pcg@goof.com>
+
+
+two threads patch (one for packet capture, other for packets processing)
+
+ Erno Rigo <mcree@tricon.hu>
+
+
+more externals to access libnids' intrinsics from the outside
+(nids_last_pcap_data, nids_linkoffset, nids_prm.pcap_desc,
+nids_find_tcp_stream(), nids_free_tcp_stream(), nids_pcap_handler()
+and nids_exit()), more API functions (nids_unregister_*()),
+fix to prevent adding several times the same user-defined callback
+function with nids_register_*()), UDP checksumming fix (0 is not an error
+according to RFC768), timeout'ing of TCP streams closed despite
+needed retransmissions if nids_params.tcp_workarounds is non-zero,
+tcp_stream.user for connection-wide user-defined parameter,
+and updated manpage & API docs :)
+
+ Sebastien Raveau <sebastien.raveau@epita.fr>
+
+
+Persistent quering about nonworking nids_killtcp() against XP SP2:
+
+ "Pedro Paulo de Magalhaes Oliveira Junior" <ppj@netfilter.com.br>
+ "Rafael Donnici de Azevedo" <rafael@netfilter.com.br>
+
+
+"absolute offset 0 byte" bug report
+
+ Treker Chen <treker.chen@reticorp.com>
+
+
+DLT_IEEE802_11_RADIO support
+
+ crass@berlios.de
+
+
+fix DLT_PRISM_HEADER linkoffset calculation; 
+check for DATA_FRAME_IS_QOS in wireless frames (code from tcpdump)
+
+  spotted by xenion <michele.dallachiesa@poste.it>
+
+
+free queued tcp segments with too old seq
+
+  "Xiang, Lin" wallyymir@yahoo.com
+
+
+reported possible NULL dereference in ip_fragment.c
+
+  "Alfred E. Heggestad" <aeh@db.org>
+
+
+notes about global variables in case of multiproc operation
+
+  "Ben, Wu CheokMan" <wucheokman@gmail.com>
+
+
+David Cannings <david@edeca.net>, Abhisek Datta <abhisek.datta@gmail.com>
+
+  missing reset of some tcp_* variables upon nids_exit
+
+
+Michal Pecio <michal.pecio@students.mimuw.edu.pl>
+
+  correct calculation of radiotap header
+
+
+Jon Oberheide <jon@oberheide.org>, Alon Bar-Lev <alon.barlev@gmail.com>
+
+  compilation warning fixes
+
+
+Gao Xia <xiaogao@mails.tsinghua.edu.cn>
+
+  another possible NULL dereference in ip_fragment.c fix
+
+
+Jeff Nathan <jeffnathan@gmail.com>
+
+  pcap_get_selectable_fd()
+
+
+Alon Bar-Lev <alon.barlev@gmail.com>
+
+  unofficial patch that enables tracking of already established TCP
+  connections
+
+
+Libnids uses libpcap and libnet libraries:
+    
+   LBNL Network Research Group <libpcap@ee.lbl.gov>
+   ftp://ftp.ee.lbl.gov/libpcap.tar.Z
+   new versions available at http://www.tcpdump.org/release/
+
+   Mike D. Schiffman <mike@infonexus.com>
+   route|daemon9 <route@infonexus.com>
+   http://www.packetfactory.net/libnet
+ 
+Libnids emulates algorithms present in Linux 2.0.36 kernel. The files
+ip_fragment.c and ip_options.c are the modified respective files from Linux 
+2.0.36 kernel source. The asm code used for checksums computing is taken
+from Linux 2.2.10 kernel source.
