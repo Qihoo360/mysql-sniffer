@@ -7,7 +7,7 @@ MySQL Sniffer 是一个基于 MySQL 协议的抓包工具，实时抓取 MySQLSe
 同类型工具还有vc-mysql-sniffer，以及 tshark 的 -e mysql.query 参数来解析 MySQL 协议。
 
 ## 使用
-建议在 centos6.2及以上编译安装。
+建议在 centos6.2 及以上编译安装，并用 root 运行。
 
 ###参数：
 
@@ -61,7 +61,7 @@ mysql-sniffer -i eth0 -p 3306,3307,3310 -l /tmp
 
 ##更多
 
-MySQL Sniffer 更多使用方式以及Atlas 等其他技术请关注：我们360私有云（HULK平台）平台微信公共号
+MySQL Sniffer 更多使用方式以及 Atlas 等其他技术请关注：我们360私有云（HULK平台）平台微信公共号
 <img src="http://i.imgur.com/pL4ni57.png" height = "400" width = "600" alt="2">
 
 ##感谢
