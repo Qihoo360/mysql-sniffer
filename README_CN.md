@@ -12,8 +12,8 @@ MySQL Sniffer 是一个基于 MySQL 协议的抓包工具，实时抓取 MySQLSe
 ###参数：
 
 ```
-./sniffer-tcpreasm -h
-Usage sniffer-tcpreasm [-d] -i eth0 -p 3306,3307,3308 -l /var/log/mysql-sniffer/ -e stderr
+./mysql-sniffer -h
+Usage mysql-sniffer [-d] -i eth0 -p 3306,3307,3308 -l /var/log/mysql-sniffer/ -e stderr
          [-d] -i eth0 -r 3000-4000
          -d daemon mode.
          -s how often to split the log file(minute, eg. 1440). if less than 0, split log everyday
@@ -33,7 +33,7 @@ Usage sniffer-tcpreasm [-d] -i eth0 -p 3306,3307,3308 -l /var/log/mysql-sniffer/
 输出格式为：时间，访问用户，来源 IP，访问 Database，命令耗时，返回数据行数，执行语句。
 
 ```
-sniffer-tcpreasm -i eth0 -p 3306
+mysql-sniffer -i eth0 -p 3306
 2017-02-23 14:47:45	 testuser	 10.xx.xx.xx	 NULL	          0ms	          1	 select @@version_comment limit 1
 2017-02-23 14:47:45	 testuser	 10.xx.xx.xx	 NULL	          0ms	          1	 select USER()
 2017-02-23 14:47:48	 testuser	 10.xx.xx.xx	 NULL	          0ms	         13	 show databases
@@ -49,13 +49,13 @@ sniffer-tcpreasm -i eth0 -p 3306
 -l 指定日志输出路径，日志文件将以 port.log 命名。
 
 ```
-sniffer-tcpreasm -i eth0 -p 3306 -l /tmp
+mysql-sniffer -i eth0 -p 3306 -l /tmp
 ```
 ### 3. 实时抓取多个端口信息并打印到文件
 -l 指定日志输出路径，-p 指定需要抓取的端口列表逗号分割。日志文件将以各自 port.log 命名。
 
 ```
-sniffer-tcpreasm -i eth0 -p 3306,3307,3310 -l /tmp
+mysql-sniffer -i eth0 -p 3306,3307,3310 -l /tmp
 ```
 ……
 
