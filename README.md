@@ -1,11 +1,16 @@
 # MySQL Sniffer [中文介绍](https://github.com/Qihoo360/mysql-sniffer/blob/master/README_CN.md)
+<<<<<<< HEAD
 MySQL Sniffer is a network traffic analyzer tool for MySQL, it is developed by Qihoo DBA and infrastructure team. This commandline tool captures and analyzes packets destined for a MySQL
 server, and outputs them in a standard log format including access time, users IP, database, query_time, rows number and query.
+=======
+MySQL Sniffer is a network traffic analyzer tool for MySQL, it is developed by Qihoo DBA and infrastructure team. This commandline tool captures and analyzes packets destined for a MySQL 
+server, and outputs them in a standard log format including access time, users, IP, database, query_time, rows number and query.
+>>>>>>> b65efdf3158e7c1a127b4b67f4e293f8369155e7
 
 MySQL Sniffer also analyzer Atlas's network traffic. Atlas is a MySQL protocol-based database middleware project，github：[https://github.com/Qihoo360/Atlas](https://github.com/Qihoo360/Atlas)
 
 # System requirements:
-- certified to run on CentOS v6 
+- Certified to run on CentOS v6 
 - Commandline access to the server with root privileges
 
 # Usage
@@ -31,3 +36,6 @@ Usage mysql-sniffer [-d] -i eth0 -p 3306,3307,3308 -l /var/log/mysql-sniffer/ -e
 More MySQL Sniffer information, Atlas and some other technology please pay attention to our Hulk platform official account:
 
 <img src="http://i.imgur.com/pL4ni57.png" height = "400" width = "600" alt="2">
+
+# Thanks
+Thanks [yihaoDeng](https://github.com/yihaoDeng), [winkyao](https://github.com/winkyao) contribution to MySQL Sniffer.
