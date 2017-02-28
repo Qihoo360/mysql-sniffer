@@ -27,5 +27,6 @@ Usage mysql-sniffer [-d] -i eth0 -p 3306,3307,3308 -l /var/log/mysql-sniffer/ -e
 ```
 
 # More
-More MySQL Sniffer information, Atlas and some other technology please pay attention to our Hulk platform official account
+More MySQL Sniffer information, Atlas and some other technology please pay attention to our Hulk platform official account:
+
 <img src="http://i.imgur.com/pL4ni57.png" height = "400" width = "600" alt="2">
