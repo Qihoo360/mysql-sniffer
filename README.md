@@ -5,7 +5,7 @@ server, and outputs them in a standard log format including access time, users, 
 MySQL Sniffer also analyzer Atlas's network traffic. Atlas is a MySQL protocol-based database middleware project，github：[https://github.com/Qihoo360/Atlas](https://github.com/Qihoo360/Atlas)
 
 # System requirements:
-- certified to run on CentOS v6 
+- Certified to run on CentOS v6 
 - Commandline access to the server with root privileges
 
 # Usage
