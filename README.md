@@ -52,7 +52,7 @@ cd bin/
 ```
 
 # More
-More MySQL Sniffer information, Atlas and some other technology please pay attention to our Hulk platform official account:
+More MySQL Sniffer information, Atlas and some other technology please pay attention to our Hulk platform official account or QQ:104180820 
 
 <img src="http://i.imgur.com/pL4ni57.png" width = "500" alt="2">
 
