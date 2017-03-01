@@ -1,6 +1,6 @@
 # MySQL Sniffer [中文介绍](https://github.com/Qihoo360/mysql-sniffer/blob/master/README_CN.md)
 MySQL Sniffer is a network traffic analyzer tool for MySQL, it is developed by Qihoo DBA and infrastructure team. This commandline tool captures and analyzes packets destined for a MySQL 
-server, and outputs them in a standard log format including access time, users, IP, database, query_time, rows number and query.
+server and client, and outputs them in a standard log format including access time, users, IP, database, query_time, rows number and query.
 
 MySQL Sniffer also analyzer Atlas's network traffic. Atlas is a MySQL protocol-based database middleware project，github：[https://github.com/Qihoo360/Atlas](https://github.com/Qihoo360/Atlas)
 
