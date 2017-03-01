@@ -37,7 +37,7 @@ make
 cd bin/
 ```
 # Dependence 
-glib2.0、libpcap
+glib2.0、libpcap、libnet
 
 # Install
 
