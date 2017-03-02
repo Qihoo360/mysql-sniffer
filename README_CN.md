@@ -73,6 +73,9 @@ mysql-sniffer -i eth0 -p 3306,3307,3310 -l /tmp
 ```
 ……
 
+##问题
+- 有lvs环境下，如果client IP是保存在在每个连接阶段的tcp opt字段中，那么mysql-sniffer提取的真实的client IP而不是lvs的IP。
+- 只能抓取新建的链接，如果是之前创建的链接将获取不到用户名和库名，并有一定几率丢包。
 ##更多
 
 MySQL Sniffer 更多使用方式以及 Atlas 等其他技术请关注：我们360私有云（HULK平台）平台微信公共号或者加 QQ交流群：104180820
