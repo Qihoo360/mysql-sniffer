@@ -14,7 +14,7 @@ glib2-devel、libpcap-devel、libnet-devel
 
 ### 安装
 ```
-git clone git@github.com:Qihoo360/mysql-sniffer.git
+git clone https://github.com/Qihoo360/mysql-sniffer
 cd mysql-sniffer
 mkdir proj
 cd proj
