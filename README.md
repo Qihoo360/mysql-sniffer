@@ -28,7 +28,7 @@ Usage mysql-sniffer [-d] -i eth0 -p 3306,3307,3308 -l /var/log/mysql-sniffer/ -e
 ```
 # Install
 ```
-git clone git@github.com:Qihoo360/mysql-sniffer.git
+git clone https://github.com/Qihoo360/mysql-sniffer
 cd mysql-sniffer
 mkdir proj
 cd proj
