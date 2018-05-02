@@ -10,7 +10,7 @@ MySQL Sniffer 是一个基于 MySQL 协议的抓包工具，实时抓取 MySQLSe
 建议在 centos6.2 及以上编译安装，并用 root 运行。
 
 ### 依赖
-glib2-devel、libpcap-devel、libnet-devel
+glib2-devel、libpcap-devel、libnet-devel 、cmake、gcc-c++
 
 ### 安装
 ```
