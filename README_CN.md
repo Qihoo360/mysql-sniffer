@@ -84,4 +84,4 @@ MySQL Sniffer 更多使用方式以及 Atlas 等其他技术请关注：我们36
 <img src="http://i.imgur.com/pL4ni57.png" width = "500" alt="2">
 
 ## 感谢
-感谢[yihaoDeng](https://github.com/yihaoDeng), [winkyao](https://github.com/winkyao)对 MySQL Sniffer 的贡献。
+感谢[yihaoDeng](https://github.com/yihaoDeng), [winkyao](https://github.com/winkyao)对 MySQL Sniffer 的贡献!
