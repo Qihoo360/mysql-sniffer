@@ -37,7 +37,7 @@ make
 cd bin/
 ```
 # Dependence 
-glib2-devel、libpcap-devel、libnet-devel
+glib2-devel(2.28.8)、libpcap-devel(1.4.0)、libnet-devel(1.1.6)
 
 # Install
 
