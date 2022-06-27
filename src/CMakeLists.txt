@@ -31,6 +31,7 @@ EXECUTE_PROCESS(COMMAND make
 ADD_EXECUTABLE(mysql-sniffer ${SRC_LIST})
 TARGET_LINK_LIBRARIES(mysql-sniffer optimized
     libnidstcpreasm.a
+    libpthread.so.0
     libnet.a 
     libpcap.a
     libglib-2.0.a 
@@ -39,6 +40,7 @@ TARGET_LINK_LIBRARIES(mysql-sniffer optimized
    
 TARGET_LINK_LIBRARIES(mysql-sniffer debug
     libnidstcpreasm-dbg.a
+    libpthread.so.0
     libnet.a 
     libpcap.a
     libglib-2.0.a
